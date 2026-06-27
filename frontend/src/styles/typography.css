@@ -1,0 +1,76 @@
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+h1 {
+  max-width: 13ch;
+  margin-bottom: var(--space-4);
+  font-size: 4.25rem;
+  line-height: 0.98;
+}
+
+h2 {
+  margin-bottom: var(--space-4);
+  font-size: 1.5rem;
+  line-height: 1.15;
+}
+
+.eyebrow {
+  margin-bottom: var(--space-3);
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.standfirst {
+  max-width: 62ch;
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+h3,
+h4 {
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 880px) {
+  h1 {
+    font-size: 3.25rem;
+  }
+}
+
+@media (max-width: 560px) {
+  h1 {
+    font-size: 2.35rem;
+  }
+
+  .standfirst {
+    font-size: 1.05rem;
+  }
+}

@@ -1,0 +1,34 @@
+team_id,display_name,rating,rating_source,source_id,rating_snapshot_kind,rating_date,retrieved_at,source_url,fifa_code,iso_alpha2,iso_alpha3,notes
+t01,Placeholder Team 01,1601,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T01,,,Placeholder test rating; not real Elo data.
+t02,Placeholder Team 02,1602,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T02,,,Placeholder test rating; not real Elo data.
+t03,Placeholder Team 03,1603,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T03,,,Placeholder test rating; not real Elo data.
+t04,Placeholder Team 04,1604,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T04,,,Placeholder test rating; not real Elo data.
+t05,Placeholder Team 05,1605,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T05,,,Placeholder test rating; not real Elo data.
+t06,Placeholder Team 06,1606,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T06,,,Placeholder test rating; not real Elo data.
+t07,Placeholder Team 07,1607,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T07,,,Placeholder test rating; not real Elo data.
+t08,Placeholder Team 08,1608,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T08,,,Placeholder test rating; not real Elo data.
+t09,Placeholder Team 09,1609,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T09,,,Placeholder test rating; not real Elo data.
+t10,Placeholder Team 10,1610,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T10,,,Placeholder test rating; not real Elo data.
+t11,Placeholder Team 11,1611,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T11,,,Placeholder test rating; not real Elo data.
+t12,Placeholder Team 12,1612,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T12,,,Placeholder test rating; not real Elo data.
+t13,Placeholder Team 13,1613,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T13,,,Placeholder test rating; not real Elo data.
+t14,Placeholder Team 14,1614,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T14,,,Placeholder test rating; not real Elo data.
+t15,Placeholder Team 15,1615,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T15,,,Placeholder test rating; not real Elo data.
+t16,Placeholder Team 16,1616,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T16,,,Placeholder test rating; not real Elo data.
+t17,Placeholder Team 17,1617,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T17,,,Placeholder test rating; not real Elo data.
+t18,Placeholder Team 18,1618,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T18,,,Placeholder test rating; not real Elo data.
+t19,Placeholder Team 19,1619,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T19,,,Placeholder test rating; not real Elo data.
+t20,Placeholder Team 20,1620,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T20,,,Placeholder test rating; not real Elo data.
+t21,Placeholder Team 21,1621,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T21,,,Placeholder test rating; not real Elo data.
+t22,Placeholder Team 22,1622,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T22,,,Placeholder test rating; not real Elo data.
+t23,Placeholder Team 23,1623,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T23,,,Placeholder test rating; not real Elo data.
+t24,Placeholder Team 24,1624,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T24,,,Placeholder test rating; not real Elo data.
+t25,Placeholder Team 25,1625,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T25,,,Placeholder test rating; not real Elo data.
+t26,Placeholder Team 26,1626,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T26,,,Placeholder test rating; not real Elo data.
+t27,Placeholder Team 27,1627,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T27,,,Placeholder test rating; not real Elo data.
+t28,Placeholder Team 28,1628,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T28,,,Placeholder test rating; not real Elo data.
+t29,Placeholder Team 29,1629,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T29,,,Placeholder test rating; not real Elo data.
+t30,Placeholder Team 30,1630,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T30,,,Placeholder test rating; not real Elo data.
+t31,Placeholder Team 31,1631,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T31,,,Placeholder test rating; not real Elo data.
+t32,Placeholder Team 32,1632,Placeholder test ratings,placeholder_test_ratings,test_fixture,2026-01-01,2026-06-27T00:00:00Z,,T32,,,Placeholder test rating; not real Elo data.
+

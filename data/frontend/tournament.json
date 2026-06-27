@@ -1,0 +1,1065 @@
+{
+  "schema_version": "1",
+  "tournament": {
+    "tournament_id": "fifa-world-cup-2026",
+    "display_name": "FIFA World Cup 2026",
+    "stage": "knockout",
+    "starts_at_round": "R32",
+    "generated_at": "2026-06-27T20:38:23Z",
+    "data_version": "stage-2-placeholder-v1",
+    "data_note": "Placeholder/test teams and ratings for MVP data-contract validation."
+  },
+  "sources": [
+    {
+      "source_id": "world_football_elo",
+      "display_name": "World Football Elo Ratings",
+      "source_type": "current_elo",
+      "url": "https://www.eloratings.net/",
+      "license_note": "External source; review source terms before publication.",
+      "retrieval_method": "manual CSV import or build-time fetch when a CSV source is available",
+      "notes": "Preferred current Elo-style national-team rating source for local snapshots."
+    },
+    {
+      "source_id": "footballratings_mirror",
+      "display_name": "Football Elo Ratings mirror",
+      "source_type": "mirror",
+      "url": "https://www.footballratings.org/",
+      "license_note": "External mirror; review source terms before publication.",
+      "retrieval_method": "manual CSV import or build-time fetch when a CSV source is available",
+      "notes": "Possible technical fallback for ratings sourced from World Football Elo Ratings."
+    },
+    {
+      "source_id": "placeholder_test_ratings",
+      "display_name": "Placeholder test ratings",
+      "source_type": "current_elo",
+      "url": "local://placeholder-test-ratings",
+      "license_note": "Project-local test fixture only; not real Elo data.",
+      "retrieval_method": "manual test fixture",
+      "notes": "Used only to validate the MVP data contract before real local rating snapshots are added."
+    }
+  ],
+  "models": {
+    "default_model_id": "simple_elo",
+    "available_models": [
+      {
+        "model_id": "simple_elo",
+        "display_name": "Simple Elo",
+        "model_version": "1.0.0",
+        "probability_method": "rating_difference_logistic",
+        "is_available": true
+      }
+    ],
+    "rating_source": "Placeholder test ratings",
+    "rating_snapshot_date": "2026-01-01",
+    "rating_snapshot_kind": "test_fixture"
+  },
+  "teams": [
+    {
+      "team_id": "t01",
+      "display_name": "Placeholder Team 01",
+      "short_name": "Team 01",
+      "rating": 1601.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T01",
+      "fifa_code": "T01",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t02",
+      "display_name": "Placeholder Team 02",
+      "short_name": "Team 02",
+      "rating": 1602.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T02",
+      "fifa_code": "T02",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t03",
+      "display_name": "Placeholder Team 03",
+      "short_name": "Team 03",
+      "rating": 1603.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T03",
+      "fifa_code": "T03",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t04",
+      "display_name": "Placeholder Team 04",
+      "short_name": "Team 04",
+      "rating": 1604.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T04",
+      "fifa_code": "T04",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t05",
+      "display_name": "Placeholder Team 05",
+      "short_name": "Team 05",
+      "rating": 1605.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T05",
+      "fifa_code": "T05",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t06",
+      "display_name": "Placeholder Team 06",
+      "short_name": "Team 06",
+      "rating": 1606.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T06",
+      "fifa_code": "T06",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t07",
+      "display_name": "Placeholder Team 07",
+      "short_name": "Team 07",
+      "rating": 1607.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T07",
+      "fifa_code": "T07",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t08",
+      "display_name": "Placeholder Team 08",
+      "short_name": "Team 08",
+      "rating": 1608.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T08",
+      "fifa_code": "T08",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t09",
+      "display_name": "Placeholder Team 09",
+      "short_name": "Team 09",
+      "rating": 1609.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T09",
+      "fifa_code": "T09",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t10",
+      "display_name": "Placeholder Team 10",
+      "short_name": "Team 10",
+      "rating": 1610.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T10",
+      "fifa_code": "T10",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t11",
+      "display_name": "Placeholder Team 11",
+      "short_name": "Team 11",
+      "rating": 1611.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T11",
+      "fifa_code": "T11",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t12",
+      "display_name": "Placeholder Team 12",
+      "short_name": "Team 12",
+      "rating": 1612.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T12",
+      "fifa_code": "T12",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t13",
+      "display_name": "Placeholder Team 13",
+      "short_name": "Team 13",
+      "rating": 1613.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T13",
+      "fifa_code": "T13",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t14",
+      "display_name": "Placeholder Team 14",
+      "short_name": "Team 14",
+      "rating": 1614.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T14",
+      "fifa_code": "T14",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t15",
+      "display_name": "Placeholder Team 15",
+      "short_name": "Team 15",
+      "rating": 1615.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T15",
+      "fifa_code": "T15",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t16",
+      "display_name": "Placeholder Team 16",
+      "short_name": "Team 16",
+      "rating": 1616.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T16",
+      "fifa_code": "T16",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t17",
+      "display_name": "Placeholder Team 17",
+      "short_name": "Team 17",
+      "rating": 1617.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T17",
+      "fifa_code": "T17",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t18",
+      "display_name": "Placeholder Team 18",
+      "short_name": "Team 18",
+      "rating": 1618.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T18",
+      "fifa_code": "T18",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t19",
+      "display_name": "Placeholder Team 19",
+      "short_name": "Team 19",
+      "rating": 1619.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T19",
+      "fifa_code": "T19",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t20",
+      "display_name": "Placeholder Team 20",
+      "short_name": "Team 20",
+      "rating": 1620.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T20",
+      "fifa_code": "T20",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t21",
+      "display_name": "Placeholder Team 21",
+      "short_name": "Team 21",
+      "rating": 1621.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T21",
+      "fifa_code": "T21",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t22",
+      "display_name": "Placeholder Team 22",
+      "short_name": "Team 22",
+      "rating": 1622.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T22",
+      "fifa_code": "T22",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t23",
+      "display_name": "Placeholder Team 23",
+      "short_name": "Team 23",
+      "rating": 1623.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T23",
+      "fifa_code": "T23",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t24",
+      "display_name": "Placeholder Team 24",
+      "short_name": "Team 24",
+      "rating": 1624.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T24",
+      "fifa_code": "T24",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t25",
+      "display_name": "Placeholder Team 25",
+      "short_name": "Team 25",
+      "rating": 1625.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T25",
+      "fifa_code": "T25",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t26",
+      "display_name": "Placeholder Team 26",
+      "short_name": "Team 26",
+      "rating": 1626.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T26",
+      "fifa_code": "T26",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t27",
+      "display_name": "Placeholder Team 27",
+      "short_name": "Team 27",
+      "rating": 1627.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T27",
+      "fifa_code": "T27",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t28",
+      "display_name": "Placeholder Team 28",
+      "short_name": "Team 28",
+      "rating": 1628.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T28",
+      "fifa_code": "T28",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t29",
+      "display_name": "Placeholder Team 29",
+      "short_name": "Team 29",
+      "rating": 1629.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T29",
+      "fifa_code": "T29",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t30",
+      "display_name": "Placeholder Team 30",
+      "short_name": "Team 30",
+      "rating": 1630.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T30",
+      "fifa_code": "T30",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t31",
+      "display_name": "Placeholder Team 31",
+      "short_name": "Team 31",
+      "rating": 1631.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T31",
+      "fifa_code": "T31",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    },
+    {
+      "team_id": "t32",
+      "display_name": "Placeholder Team 32",
+      "short_name": "Team 32",
+      "rating": 1632.0,
+      "rating_source": "Placeholder test ratings",
+      "source_id": "placeholder_test_ratings",
+      "rating_snapshot_kind": "test_fixture",
+      "rating_date": "2026-01-01",
+      "retrieved_at": "2026-06-27T00:00:00Z",
+      "flag_mode": "text",
+      "flag_value": "T32",
+      "fifa_code": "T32",
+      "confederation": "TEST",
+      "notes": "Placeholder test team for MVP data validation; not a real tournament team."
+    }
+  ],
+  "rounds": [
+    {
+      "round_id": "R32",
+      "display_name": "Round of 32",
+      "display_order": 1
+    },
+    {
+      "round_id": "R16",
+      "display_name": "Round of 16",
+      "display_order": 2
+    },
+    {
+      "round_id": "QF",
+      "display_name": "Quarter-final",
+      "display_order": 3
+    },
+    {
+      "round_id": "SF",
+      "display_name": "Semi-final",
+      "display_order": 4
+    },
+    {
+      "round_id": "F",
+      "display_name": "Final",
+      "display_order": 5
+    }
+  ],
+  "matches": [
+    {
+      "match_id": "R32-01",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t01"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t02"
+      },
+      "feeds_to_match_id": "R16-01",
+      "feeds_to_slot": "A",
+      "display_order": 1
+    },
+    {
+      "match_id": "R32-02",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t03"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t04"
+      },
+      "feeds_to_match_id": "R16-01",
+      "feeds_to_slot": "B",
+      "display_order": 2
+    },
+    {
+      "match_id": "R32-03",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t05"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t06"
+      },
+      "feeds_to_match_id": "R16-02",
+      "feeds_to_slot": "A",
+      "display_order": 3
+    },
+    {
+      "match_id": "R32-04",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t07"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t08"
+      },
+      "feeds_to_match_id": "R16-02",
+      "feeds_to_slot": "B",
+      "display_order": 4
+    },
+    {
+      "match_id": "R32-05",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t09"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t10"
+      },
+      "feeds_to_match_id": "R16-03",
+      "feeds_to_slot": "A",
+      "display_order": 5
+    },
+    {
+      "match_id": "R32-06",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t11"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t12"
+      },
+      "feeds_to_match_id": "R16-03",
+      "feeds_to_slot": "B",
+      "display_order": 6
+    },
+    {
+      "match_id": "R32-07",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t13"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t14"
+      },
+      "feeds_to_match_id": "R16-04",
+      "feeds_to_slot": "A",
+      "display_order": 7
+    },
+    {
+      "match_id": "R32-08",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t15"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t16"
+      },
+      "feeds_to_match_id": "R16-04",
+      "feeds_to_slot": "B",
+      "display_order": 8
+    },
+    {
+      "match_id": "R32-09",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t17"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t18"
+      },
+      "feeds_to_match_id": "R16-05",
+      "feeds_to_slot": "A",
+      "display_order": 9
+    },
+    {
+      "match_id": "R32-10",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t19"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t20"
+      },
+      "feeds_to_match_id": "R16-05",
+      "feeds_to_slot": "B",
+      "display_order": 10
+    },
+    {
+      "match_id": "R32-11",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t21"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t22"
+      },
+      "feeds_to_match_id": "R16-06",
+      "feeds_to_slot": "A",
+      "display_order": 11
+    },
+    {
+      "match_id": "R32-12",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t23"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t24"
+      },
+      "feeds_to_match_id": "R16-06",
+      "feeds_to_slot": "B",
+      "display_order": 12
+    },
+    {
+      "match_id": "R32-13",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t25"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t26"
+      },
+      "feeds_to_match_id": "R16-07",
+      "feeds_to_slot": "A",
+      "display_order": 13
+    },
+    {
+      "match_id": "R32-14",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t27"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t28"
+      },
+      "feeds_to_match_id": "R16-07",
+      "feeds_to_slot": "B",
+      "display_order": 14
+    },
+    {
+      "match_id": "R32-15",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t29"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t30"
+      },
+      "feeds_to_match_id": "R16-08",
+      "feeds_to_slot": "A",
+      "display_order": 15
+    },
+    {
+      "match_id": "R32-16",
+      "round_id": "R32",
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "t31"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "t32"
+      },
+      "feeds_to_match_id": "R16-08",
+      "feeds_to_slot": "B",
+      "display_order": 16
+    },
+    {
+      "match_id": "R16-01",
+      "round_id": "R16",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-01"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-02"
+      },
+      "feeds_to_match_id": "QF-01",
+      "feeds_to_slot": "A",
+      "display_order": 1
+    },
+    {
+      "match_id": "R16-02",
+      "round_id": "R16",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-03"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-04"
+      },
+      "feeds_to_match_id": "QF-01",
+      "feeds_to_slot": "B",
+      "display_order": 2
+    },
+    {
+      "match_id": "R16-03",
+      "round_id": "R16",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-05"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-06"
+      },
+      "feeds_to_match_id": "QF-02",
+      "feeds_to_slot": "A",
+      "display_order": 3
+    },
+    {
+      "match_id": "R16-04",
+      "round_id": "R16",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-07"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-08"
+      },
+      "feeds_to_match_id": "QF-02",
+      "feeds_to_slot": "B",
+      "display_order": 4
+    },
+    {
+      "match_id": "R16-05",
+      "round_id": "R16",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-09"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-10"
+      },
+      "feeds_to_match_id": "QF-03",
+      "feeds_to_slot": "A",
+      "display_order": 5
+    },
+    {
+      "match_id": "R16-06",
+      "round_id": "R16",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-11"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-12"
+      },
+      "feeds_to_match_id": "QF-03",
+      "feeds_to_slot": "B",
+      "display_order": 6
+    },
+    {
+      "match_id": "R16-07",
+      "round_id": "R16",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-13"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-14"
+      },
+      "feeds_to_match_id": "QF-04",
+      "feeds_to_slot": "A",
+      "display_order": 7
+    },
+    {
+      "match_id": "R16-08",
+      "round_id": "R16",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-15"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-16"
+      },
+      "feeds_to_match_id": "QF-04",
+      "feeds_to_slot": "B",
+      "display_order": 8
+    },
+    {
+      "match_id": "QF-01",
+      "round_id": "QF",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-01"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-02"
+      },
+      "feeds_to_match_id": "SF-01",
+      "feeds_to_slot": "A",
+      "display_order": 1
+    },
+    {
+      "match_id": "QF-02",
+      "round_id": "QF",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-03"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-04"
+      },
+      "feeds_to_match_id": "SF-01",
+      "feeds_to_slot": "B",
+      "display_order": 2
+    },
+    {
+      "match_id": "QF-03",
+      "round_id": "QF",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-05"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-06"
+      },
+      "feeds_to_match_id": "SF-02",
+      "feeds_to_slot": "A",
+      "display_order": 3
+    },
+    {
+      "match_id": "QF-04",
+      "round_id": "QF",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-07"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-08"
+      },
+      "feeds_to_match_id": "SF-02",
+      "feeds_to_slot": "B",
+      "display_order": 4
+    },
+    {
+      "match_id": "SF-01",
+      "round_id": "SF",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "QF-01"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "QF-02"
+      },
+      "feeds_to_match_id": "F-01",
+      "feeds_to_slot": "A",
+      "display_order": 1
+    },
+    {
+      "match_id": "SF-02",
+      "round_id": "SF",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "QF-03"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "QF-04"
+      },
+      "feeds_to_match_id": "F-01",
+      "feeds_to_slot": "B",
+      "display_order": 2
+    },
+    {
+      "match_id": "F-01",
+      "round_id": "F",
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "SF-01"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "SF-02"
+      },
+      "feeds_to_match_id": null,
+      "feeds_to_slot": null,
+      "display_order": 1
+    }
+  ],
+  "official_results": []
+}

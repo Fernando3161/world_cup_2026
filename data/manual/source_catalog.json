@@ -1,0 +1,31 @@
+{
+  "sources": [
+    {
+      "source_id": "world_football_elo",
+      "display_name": "World Football Elo Ratings",
+      "source_type": "current_elo",
+      "url": "https://www.eloratings.net/",
+      "license_note": "External source; review source terms before publication.",
+      "retrieval_method": "manual CSV import or build-time fetch when a CSV source is available",
+      "notes": "Preferred current Elo-style national-team rating source for local snapshots."
+    },
+    {
+      "source_id": "footballratings_mirror",
+      "display_name": "Football Elo Ratings mirror",
+      "source_type": "mirror",
+      "url": "https://www.footballratings.org/",
+      "license_note": "External mirror; review source terms before publication.",
+      "retrieval_method": "manual CSV import or build-time fetch when a CSV source is available",
+      "notes": "Possible technical fallback for ratings sourced from World Football Elo Ratings."
+    },
+    {
+      "source_id": "placeholder_test_ratings",
+      "display_name": "Placeholder test ratings",
+      "source_type": "current_elo",
+      "url": "local://placeholder-test-ratings",
+      "license_note": "Project-local test fixture only; not real Elo data.",
+      "retrieval_method": "manual test fixture",
+      "notes": "Used only to validate the MVP data contract before real local rating snapshots are added."
+    }
+  ]
+}

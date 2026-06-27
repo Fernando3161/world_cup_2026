@@ -274,9 +274,9 @@ world-cup-forecast/
 
 ## 9A. Visual Design Agent Rules
 
-The coding agent must implement an FT-inspired editorial data-publication aesthetic.
+The coding agent must implement Visual Design v2.
 
-This means:
+Visual Design v1 was the FT-inspired editorial data-publication aesthetic:
 
 - Warm paper-like background
 - Restrained editorial palette
@@ -285,6 +285,28 @@ This means:
 - Compact data layout
 - Calm interaction states
 - Serious analytical tone
+
+Visual Design v1 is now superseded. Visual Design v2 means:
+
+- Premium football analytics dashboard
+- Light outer page shell
+- Dark bracket panel/canvas
+- Bracket-first first viewport
+- Polished tournament-tree bracket presentation
+- Stronger but controlled color system
+- Professional analytical tone
+- No betting-site aesthetic
+- No FIFA clone
+- No childish sports-broadcast aesthetic
+
+The v2 rationale is that v1 was too restrained for the product. The bracket is the main product surface and must be immediately visible on desktop.
+
+Stage 6.3 / Visual Design v2.1 further requires:
+
+- Title / nav row first
+- Bracket immediately after the title/header area
+- Model status, scenario controls, champion summary, and reset controls below the bracket
+- No large control boxes or summary panels above the bracket
 
 The agent must follow:
 
@@ -304,6 +326,7 @@ The agent may:
 - Improve layout, spacing, and visual hierarchy.
 - Add responsive bracket layouts.
 - Add accessible focus states.
+- Use a dark bracket canvas and controlled premium sports-data accents.
 
 ### 9A.2 Forbidden Visual Actions
 
@@ -312,11 +335,13 @@ The agent must not:
 - Use the FT logo.
 - Name the product as if it were a Financial Times product.
 - Use Financial Times trademarks as product branding.
+- Use FIFA logos, competition marks, or styling that implies official affiliation.
 - Commit proprietary FT font files.
 - Import FT content, articles, headlines, or imagery.
 - Copy the FT interface so closely that it implies affiliation.
 - Add a heavy UI framework just for styling.
 - Use betting-site visual language.
+- Use childish sports-broadcast graphics, over-bright neon, excessive beige, excessive whitespace, or pastel SaaS styling.
 - Prioritize visual polish over mathematical correctness.
 
 ### 9A.3 Approval Required
@@ -326,7 +351,7 @@ The agent must ask for approval before:
 - Adding any external font dependency.
 - Adding any external image or icon package.
 - Adding a UI framework.
-- Changing the visual direction away from the editorial/FT-inspired style.
+- Changing the visual direction away from Visual Design v2.
 - Adding visual regression tooling that meaningfully changes CI runtime.
 
 ### 9A.4 CSS Rules
@@ -344,6 +369,10 @@ frontend/src/styles/components.css
 The agent must avoid scattering one-off hard-coded colours and spacing values across React components.
 
 The visual system should be token-based and maintainable.
+
+For bracket nodes, country labels must not wrap mid-word. Use FIFA-style codes when compact nodes cannot fit full names. Winner and loser states must be conveyed visually through highlight, borders, opacity, or desaturation rather than large textual `WIN` labels.
+
+For flags, the public MVP should use local SVG assets from `frontend/public/flags`. If `flag_mode = "asset"`, render the local `flag_value` path as an image. Do not fetch remote flag images at runtime. If an asset is missing or fails to load, fall back to a compact text label such as the FIFA code or short name. Emoji flags may remain supported as fallback/development data, but they are not the primary public-MVP solution.
 
 
 

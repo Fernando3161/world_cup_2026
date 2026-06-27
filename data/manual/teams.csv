@@ -1,33 +1,33 @@
 team_id,display_name,short_name,flag_mode,flag_value,fifa_code,iso_alpha2,iso_alpha3,confederation,notes
-t01,Brazil,Brazil,emoji,🇧🇷,BRA,BR,BRA,CONMEBOL,Temporary test team past champion
-t02,Austria,Austria,emoji,🇦🇹,AUT,AT,AUT,UEFA,Temporary Italy replacement; qualified World Cup 2026 team
-t03,Germany,Germany,emoji,🇩🇪,GER,DE,DEU,UEFA,Temporary test team past champion
-t04,Argentina,Argentina,emoji,🇦🇷,ARG,AR,ARG,CONMEBOL,Temporary test team past champion
-t05,Uruguay,Uruguay,emoji,🇺🇾,URU,UY,URY,CONMEBOL,Temporary test team past champion and World Cup 2026 qualified team
-t06,France,France,emoji,🇫🇷,FRA,FR,FRA,UEFA,Temporary test team past champion
-t07,England,England,emoji,🏴,ENG,GB,GBR,UEFA,Temporary test team past champion
-t08,Spain,Spain,emoji,🇪🇸,ESP,ES,ESP,UEFA,Temporary test team past champion
-t09,Portugal,Portugal,emoji,🇵🇹,POR,PT,PRT,UEFA,Temporary test team
-t10,Netherlands,Netherlands,emoji,🇳🇱,NED,NL,NLD,UEFA,Temporary test team
-t11,Belgium,Belgium,emoji,🇧🇪,BEL,BE,BEL,UEFA,Temporary test team
-t12,Colombia,Colombia,emoji,🇨🇴,COL,CO,COL,CONMEBOL,Temporary test team
-t13,Croatia,Croatia,emoji,🇭🇷,CRO,HR,HRV,UEFA,Temporary test team
-t14,Morocco,Morocco,emoji,🇲🇦,MAR,MA,MAR,CAF,Temporary test team
-t15,Switzerland,Switzerland,emoji,🇨🇭,SUI,CH,CHE,UEFA,Temporary test team
-t16,United States,USA,emoji,🇺🇸,USA,US,USA,CONCACAF,Temporary test team
-t17,Mexico,Mexico,emoji,🇲🇽,MEX,MX,MEX,CONCACAF,Temporary test team
-t18,Japan,Japan,emoji,🇯🇵,JPN,JP,JPN,AFC,Temporary test team
-t19,Canada,Canada,emoji,🇨🇦,CAN,CA,CAN,CONCACAF,Temporary test team
-t20,Australia,Australia,emoji,🇦🇺,AUS,AU,AUS,AFC,Temporary test team
-t21,Senegal,Senegal,emoji,🇸🇳,SEN,SN,SEN,CAF,Temporary test team
-t22,Norway,Norway,emoji,🇳🇴,NOR,NO,NOR,UEFA,Temporary test team
-t23,Sweden,Sweden,emoji,🇸🇪,SWE,SE,SWE,UEFA,Temporary test team
-t24,Ivory Coast,Ivory Coast,emoji,🇨🇮,CIV,CI,CIV,CAF,Temporary test team
-t25,Egypt,Egypt,emoji,🇪🇬,EGY,EG,EGY,CAF,Temporary test team
-t26,South Africa,South Africa,emoji,🇿🇦,RSA,ZA,ZAF,CAF,Temporary test team
-t27,Paraguay,Paraguay,emoji,🇵🇾,PAR,PY,PRY,CONMEBOL,Temporary test team
-t28,Bosnia and Herzegovina,Bosnia,emoji,🇧🇦,BIH,BA,BIH,UEFA,Temporary test team
-t29,Ecuador,Ecuador,emoji,🇪🇨,ECU,EC,ECU,CONMEBOL,Temporary test team
-t30,Algeria,Algeria,emoji,🇩🇿,DZA,DZ,DZA,CAF,Temporary test team
-t31,Ghana,Ghana,emoji,🇬🇭,GHA,GH,GHA,CAF,Temporary test team
-t32,Cape Verde,Cape Verde,emoji,🇨🇻,CPV,CV,CPV,CAF,Temporary test team
+t01,Brazil,Brazil,asset,/flags/bra.svg,BRA,BR,BRA,CONMEBOL,Temporary test team past champion
+t02,Austria,Austria,asset,/flags/aut.svg,AUT,AT,AUT,UEFA,Temporary Italy replacement; qualified World Cup 2026 team
+t03,Germany,Germany,asset,/flags/ger.svg,GER,DE,DEU,UEFA,Temporary test team past champion
+t04,Argentina,Argentina,asset,/flags/arg.svg,ARG,AR,ARG,CONMEBOL,Temporary test team past champion
+t05,Uruguay,Uruguay,asset,/flags/uru.svg,URU,UY,URY,CONMEBOL,Temporary test team past champion and World Cup 2026 qualified team
+t06,France,France,asset,/flags/fra.svg,FRA,FR,FRA,UEFA,Temporary test team past champion
+t07,England,England,asset,/flags/eng.svg,ENG,GB,GBR,UEFA,Temporary test team past champion
+t08,Spain,Spain,asset,/flags/esp.svg,ESP,ES,ESP,UEFA,Temporary test team past champion
+t09,Portugal,Portugal,asset,/flags/por.svg,POR,PT,PRT,UEFA,Temporary test team
+t10,Netherlands,Netherlands,asset,/flags/ned.svg,NED,NL,NLD,UEFA,Temporary test team
+t11,Belgium,Belgium,asset,/flags/bel.svg,BEL,BE,BEL,UEFA,Temporary test team
+t12,Colombia,Colombia,asset,/flags/col.svg,COL,CO,COL,CONMEBOL,Temporary test team
+t13,Croatia,Croatia,asset,/flags/cro.svg,CRO,HR,HRV,UEFA,Temporary test team
+t14,Morocco,Morocco,asset,/flags/mar.svg,MAR,MA,MAR,CAF,Temporary test team
+t15,Switzerland,Switzerland,asset,/flags/sui.svg,SUI,CH,CHE,UEFA,Temporary test team
+t16,United States,USA,asset,/flags/usa.svg,USA,US,USA,CONCACAF,Temporary test team
+t17,Mexico,Mexico,asset,/flags/mex.svg,MEX,MX,MEX,CONCACAF,Temporary test team
+t18,Japan,Japan,asset,/flags/jpn.svg,JPN,JP,JPN,AFC,Temporary test team
+t19,Canada,Canada,asset,/flags/can.svg,CAN,CA,CAN,CONCACAF,Temporary test team
+t20,Australia,Australia,asset,/flags/aus.svg,AUS,AU,AUS,AFC,Temporary test team
+t21,Senegal,Senegal,asset,/flags/sen.svg,SEN,SN,SEN,CAF,Temporary test team
+t22,Norway,Norway,asset,/flags/nor.svg,NOR,NO,NOR,UEFA,Temporary test team
+t23,Sweden,Sweden,asset,/flags/swe.svg,SWE,SE,SWE,UEFA,Temporary test team
+t24,Ivory Coast,Ivory Coast,asset,/flags/civ.svg,CIV,CI,CIV,CAF,Temporary test team
+t25,Egypt,Egypt,asset,/flags/egy.svg,EGY,EG,EGY,CAF,Temporary test team
+t26,South Africa,South Africa,asset,/flags/rsa.svg,RSA,ZA,ZAF,CAF,Temporary test team
+t27,Paraguay,Paraguay,asset,/flags/par.svg,PAR,PY,PRY,CONMEBOL,Temporary test team
+t28,Bosnia and Herzegovina,Bosnia,asset,/flags/bih.svg,BIH,BA,BIH,UEFA,Temporary test team
+t29,Ecuador,Ecuador,asset,/flags/ecu.svg,ECU,EC,ECU,CONMEBOL,Temporary test team
+t30,Algeria,Algeria,asset,/flags/dza.svg,DZA,DZ,DZA,CAF,Temporary test team
+t31,Ghana,Ghana,asset,/flags/gha.svg,GHA,GH,GHA,CAF,Temporary test team
+t32,Cape Verde,Cape Verde,asset,/flags/cpv.svg,CPV,CV,CPV,CAF,Temporary test team

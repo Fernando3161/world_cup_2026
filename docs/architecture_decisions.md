@@ -377,11 +377,11 @@ The UI should prioritize:
 - Clear distinction between the simple Elo model and the historically informed Elo model once both are available
 
 
-### 6.1 Editorial Visual Design Decision
+### 6.1 Visual Design Decision
 
-The public website must use an editorial, data-rich visual style inspired by the Financial Times.
+The public website previously used Visual Design v1: an editorial, data-rich visual style inspired by the Financial Times.
 
-This requirement means the product should feel like a serious newspaper-style data interactive:
+Visual Design v1 meant the product should feel like a serious newspaper-style data interactive:
 
 - Warm paper-like page background
 - Restrained colour palette
@@ -391,7 +391,37 @@ This requirement means the product should feel like a serious newspaper-style da
 - Calm interaction states
 - No sportsbook or gaming visual language
 
-The implementation must not copy the Financial Times brand identity.
+Visual Design v1 is now superseded by Visual Design v2 for the MVP.
+
+Visual Design v2 is:
+
+```text
+premium football analytics dashboard
+```
+
+The rationale for this change is that the v1 FT-inspired aesthetic was too restrained for the product. The MVP is functionally good, but the old design felt too empty, quiet, and unattractive. The bracket is the product and must become the immediate visual hero.
+
+The v2 product should use:
+
+- Light page shell
+- Dark bracket panel or canvas
+- Bracket-first first viewport
+- Stronger but controlled color system
+- Polished knockout-tree presentation
+- Professional analytical tone
+- No betting-site aesthetic
+- No FIFA clone
+- No childish sports-broadcast aesthetic
+
+The bracket must be visible prominently in the first desktop viewport. The page must avoid large empty ceremonial whitespace before the bracket.
+
+Stage 6.3 refines this into Visual Design v2.1:
+
+- The bracket appears immediately after the title/header area.
+- Model controls, scenario status, reset controls, champion summary, and explanatory content sit below the bracket.
+- The landing view must feel like a professional knockout bracket product, not a dashboard where the main visual object is delayed by secondary panels.
+
+The implementation must not copy the Financial Times brand identity or any football governing-body identity.
 
 The project must not use:
 
@@ -401,10 +431,16 @@ The project must not use:
 - FT articles, headlines, imagery, or content
 - Design choices that imply endorsement or affiliation
 
-The correct design target is:
+The previous design target was:
 
 ```text
 FT-inspired editorial forecast aesthetic
+```
+
+The current design target is:
+
+```text
+premium football analytics dashboard
 ```
 
 not:
@@ -412,6 +448,8 @@ not:
 ```text
 Financial Times clone
 FT-branded product
+FIFA clone
+betting product
 ```
 
 The visual design contract is defined in:
@@ -675,13 +713,19 @@ The frontend must not attempt to fetch live rating data from the internet during
 
 ## 12. Flag Assets
 
-The MVP may use emoji flags for fast development.
+The public MVP uses local static SVG flag assets for consistent rendering across operating systems and browsers.
 
-The architecture should allow replacing emoji flags with static SVG or PNG flag assets later.
+The current asset location is:
 
-A later version may include a Python script to download or prepare flag assets locally before deployment.
+```text
+frontend/public/flags/
+```
 
 The frontend should not rely on remote flag images at runtime.
+
+When a team uses `flag_mode = "asset"`, the frontend must render the local image path stored in `flag_value`, such as `/flags/arg.svg`. ISO alpha-2 codes or FIFA-style codes may be fallbacks if an asset is unavailable or fails to load, but they must not replace valid local SVG assets.
+
+Emoji flags may remain supported as a development or fallback representation, but they are not the primary public-MVP solution because some systems render emoji flags as regional letters.
 
 ---
 
@@ -893,7 +937,7 @@ Version 1 includes:
 - Local rating CSV
 - Generated static JSON
 - 32-team knockout bracket
-- Emoji flags or simple local flag representation
+- Local SVG flag assets
 - Simple Elo probability model
 - Baseline forecast
 - Manual user overrides

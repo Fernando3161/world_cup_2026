@@ -74,6 +74,29 @@ def test_missing_rating_fails(tmp_path: Path) -> None:
         validate_project_data(repo_root)
 
 
+def test_asset_flag_path_must_be_local_svg(tmp_path: Path) -> None:
+    repo_root = _copy_data_tree(tmp_path)
+    teams_path = repo_root / "data/manual/teams.csv"
+    rows = _read_csv(teams_path)
+    rows[0]["flag_mode"] = "asset"
+    rows[0]["flag_value"] = "https://example.com/bra.svg"
+    _write_csv(teams_path, rows)
+
+    with pytest.raises(DataValidationError, match="asset flag_value must start with '/flags/'"):
+        validate_project_data(repo_root)
+
+
+def test_unknown_flag_mode_fails(tmp_path: Path) -> None:
+    repo_root = _copy_data_tree(tmp_path)
+    teams_path = repo_root / "data/manual/teams.csv"
+    rows = _read_csv(teams_path)
+    rows[0]["flag_mode"] = "remote"
+    _write_csv(teams_path, rows)
+
+    with pytest.raises(DataValidationError, match="flag_mode must be one of"):
+        validate_project_data(repo_root)
+
+
 def test_invalid_round_id_fails(tmp_path: Path) -> None:
     repo_root = _copy_data_tree(tmp_path)
     bracket_path = repo_root / "data/manual/bracket.json"

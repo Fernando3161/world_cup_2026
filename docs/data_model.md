@@ -243,7 +243,22 @@ This file is important for historical results and historical Elo reconstruction.
 
 ### 5.5 Flag Representation
 
-The MVP may use emoji flags.
+The MVP uses local static SVG flag assets for consistent rendering across operating systems and browsers.
+
+Recommended MVP example:
+
+```text
+flag_mode = "asset"
+flag_value = "/flags/arg.svg"
+```
+
+Static flag assets should be committed under:
+
+```text
+frontend/public/flags/
+```
+
+Emoji flags remain supported as a fallback/development representation, but the public MVP should not rely on them for the main UI because some systems render emoji flags as regional letters.
 
 Example:
 
@@ -252,16 +267,11 @@ flag_mode = "emoji"
 flag_value = "🇦🇷"
 ```
 
-Later versions may use local static assets.
-
-Example:
-
-```text
-flag_mode = "asset"
-flag_value = "/flags/arg.svg"
-```
-
 The frontend must not assume that all teams can be represented only by ISO country flags. Some football associations may not map cleanly to independent ISO countries.
+
+When `flag_mode = "asset"`, `flag_value` must be a local frontend path, preferably `/flags/<code>.svg`. The frontend must render it as an image and must not fetch remote flag URLs at runtime.
+
+When `flag_mode = "emoji"`, `flag_value` is the authoritative display flag and may be rendered as the emoji string. ISO alpha-2 text may be used only as a fallback when the intended flag value is unavailable or invalid.
 
 ---
 

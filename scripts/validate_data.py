@@ -31,6 +31,7 @@ TEAM_REQUIRED_COLUMNS = {
     "flag_mode",
     "flag_value",
 }
+VALID_FLAG_MODES = {"asset", "emoji"}
 RATING_REQUIRED_COLUMNS = {
     "team_id",
     "display_name",
@@ -152,6 +153,23 @@ def _validate_teams(teams: list[dict[str, str]]) -> list[str]:
         for field in ("display_name", "short_name", "flag_mode", "flag_value"):
             if not team.get(field):
                 errors.append(f"teams.csv row {row_number}: {field} is required for team_id '{team_id}'.")
+
+        flag_mode = team.get("flag_mode", "")
+        flag_value = team.get("flag_value", "")
+        if flag_mode and flag_mode not in VALID_FLAG_MODES:
+            errors.append(
+                f"teams.csv row {row_number}: flag_mode must be one of {', '.join(sorted(VALID_FLAG_MODES))} "
+                f"for team_id '{team_id}', got '{flag_mode}'."
+            )
+        if flag_mode == "asset":
+            if not flag_value.startswith("/flags/"):
+                errors.append(
+                    f"teams.csv row {row_number}: asset flag_value must start with '/flags/' for team_id '{team_id}'."
+                )
+            if not flag_value.endswith(".svg"):
+                errors.append(
+                    f"teams.csv row {row_number}: asset flag_value must point to an SVG file for team_id '{team_id}'."
+                )
 
     return errors
 

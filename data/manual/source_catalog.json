@@ -26,6 +26,15 @@
       "license_note": "Project-local test fixture only; not real Elo data.",
       "retrieval_method": "manual test fixture",
       "notes": "Used only to validate the MVP data contract before real local rating snapshots are added."
+    },
+    {
+      "source_id": "flag_icons",
+      "display_name": "flag-icons SVG flag set",
+      "source_type": "flags",
+      "url": "https://github.com/lipis/flag-icons",
+      "license_note": "MIT licensed SVG flag assets copied locally for static frontend rendering.",
+      "retrieval_method": "selected SVG files copied from the flag-icons npm package",
+      "notes": "Only the current MVP team flags are included in frontend/public/flags; the deployed frontend loads them as local static assets."
     }
   ]
 }

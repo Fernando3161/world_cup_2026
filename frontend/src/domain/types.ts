@@ -28,6 +28,11 @@ export interface Team {
   rating_source: string;
   flag_mode: string;
   flag_value: string;
+  fifa_code?: string;
+  iso_alpha2?: string;
+  iso_alpha3?: string;
+  confederation?: string;
+  notes?: string;
 }
 
 export interface Round {

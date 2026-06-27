@@ -41,8 +41,9 @@ def test_import_manual_current_elo_csv_writes_snapshot_with_metadata(tmp_path: P
 
     assert len(rows) == 32
     written = _read_csv(repo_root / "data/snapshots/ratings.csv")
+    teams = _read_csv(repo_root / "data/manual/teams.csv")
     assert written[0]["team_id"] == "t01"
-    assert written[0]["display_name"] == "Placeholder Team 01"
+    assert written[0]["display_name"] == teams[0]["display_name"]
     assert written[0]["rating"] == "1701"
     assert written[0]["rating_source"] == "Manual World Football Elo snapshot"
     assert written[0]["source_id"] == "world_football_elo"

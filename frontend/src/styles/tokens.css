@@ -1,14 +1,24 @@
 :root {
-  --color-paper: #fff1e5;
-  --color-surface: #fff8f2;
-  --color-surface-muted: #f2dfce;
-  --color-ink: #1a1817;
-  --color-muted: #6b625c;
-  --color-rule: #d8c3b0;
-  --color-accent: #0d7680;
-  --color-accent-dark: #0a5e66;
-  --color-danger: #b00020;
-  --color-success: #00572c;
+  --color-paper: #f4f7fb;
+  --color-surface: #ffffff;
+  --color-surface-muted: #e8edf5;
+  --color-ink: #111827;
+  --color-muted: #64748b;
+  --color-rule: #cbd5e1;
+  --color-panel: #08111f;
+  --color-panel-soft: #0f1b2d;
+  --color-panel-raised: #14233a;
+  --color-panel-ink: #f8fafc;
+  --color-panel-muted: #9aa9bd;
+  --color-line: #53657b;
+  --color-accent: #0f9f8e;
+  --color-accent-dark: #087a6f;
+  --color-accent-soft: #dff8f3;
+  --color-gold: #f2b84b;
+  --color-gold-soft: #2b2415;
+  --color-loser: #7b8797;
+  --color-danger: #b42318;
+  --color-success: #047857;
 
   --font-serif: Georgia, "Times New Roman", serif;
   --font-sans: Arial, Helvetica, sans-serif;
@@ -25,5 +35,6 @@
   --radius-small: 4px;
   --radius-medium: 8px;
   --rule-thin: 1px;
-  --page-max-width: 1480px;
+  --page-max-width: 1560px;
+  --z-modal: 20;
 }

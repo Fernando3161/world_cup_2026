@@ -12,10 +12,10 @@ h2 {
 }
 
 h1 {
-  max-width: 13ch;
-  margin-bottom: var(--space-4);
-  font-size: 4.25rem;
-  line-height: 0.98;
+  max-width: none;
+  margin-bottom: var(--space-1);
+  font-size: 2.35rem;
+  line-height: 1.02;
 }
 
 h2 {
@@ -25,21 +25,29 @@ h2 {
 }
 
 .eyebrow {
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-1);
   color: var(--color-muted);
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.68rem;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .standfirst {
-  max-width: 62ch;
+  max-width: 74ch;
   margin-bottom: 0;
   color: var(--color-muted);
-  font-family: var(--font-serif);
-  font-size: 1.2rem;
-  line-height: 1.5;
+  font-size: 0.96rem;
+  line-height: 1.4;
+}
+
+.byline {
+  margin: 0 0 var(--space-2);
+  color: var(--color-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 h3,
@@ -61,16 +69,16 @@ h4 {
 
 @media (max-width: 880px) {
   h1 {
-    font-size: 3.25rem;
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 560px) {
   h1 {
-    font-size: 2.35rem;
+    font-size: 2rem;
   }
 
   .standfirst {
-    font-size: 1.05rem;
+    font-size: 0.96rem;
   }
 }

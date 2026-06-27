@@ -1,4 +1,5 @@
 import type { ChampionProbability, Team } from "../../domain/types";
+import { TeamFlag } from "../TeamFlag/TeamFlag";
 
 interface ChampionSummaryProps {
   championProbabilities: ChampionProbability[];
@@ -24,9 +25,13 @@ export function ChampionSummary({
             <li className="champion-row" key={teamProbability.team_id}>
               <span className="rank">{index + 1}</span>
               <span className="team-identity">
-                <span className="team-flag" aria-hidden="true">
-                  {team?.flag_value ?? teamProbability.team_id}
-                </span>
+                {team ? (
+                  <TeamFlag team={team} />
+                ) : (
+                  <span className="team-flag team-flag--fallback" aria-hidden="true">
+                    {teamProbability.team_id}
+                  </span>
+                )}
                 <span className="team-name">
                   {team?.display_name ?? teamProbability.team_id}
                 </span>
@@ -58,4 +63,3 @@ function formatPercent(value: number) {
     maximumFractionDigits: 1,
   }).format(value);
 }
-

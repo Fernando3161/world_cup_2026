@@ -267,11 +267,18 @@ Each team must include at least:
 
 ### REQ-DATA-008 — Flag representation
 
-The MVP may use emoji flags.
+The public MVP must use local static flag assets for the main UI.
 
-The data model must allow replacing emoji flags with local static SVG or PNG flag assets later.
+The data model must allow:
+
+- `flag_mode = "asset"` with a local static path such as `/flags/arg.svg`
+- `flag_mode = "emoji"` as a fallback or development representation
 
 The deployed app must not depend on remote flag images at runtime.
+
+When `flag_mode = "asset"`, the frontend must render an image from the local `flag_value` path. Asset paths must not be remote URLs and should start with `/flags/`.
+
+When `flag_mode = "emoji"`, the frontend may render the actual emoji string stored in `flag_value`, but emoji flags must not be the primary public-MVP solution because some operating systems render them as regional letters. ISO or other text fallbacks may be used only when the intended flag value is missing, invalid, or fails to load.
 
 ### REQ-DATA-009 — Bracket data
 
@@ -638,13 +645,22 @@ Probabilities, flags, names, and winners must be readable.
 
 ---
 
-## 13A. Editorial Visual Design Requirements
+## 13A. Visual Design Requirements
 
-### REQ-STYLE-001 — FT-inspired editorial aesthetic
+### REQ-STYLE-001 — Visual Design v2 direction
 
-The website must use an editorial, data-publication aesthetic inspired by the Financial Times.
+The website must use Visual Design v2 as the controlling MVP visual direction.
 
-The design should communicate seriousness, statistical credibility, and public readability.
+Visual Design v2 is a premium football analytics dashboard with:
+
+- Light outer page shell
+- Dark bracket panel/canvas
+- Bracket-first first viewport
+- Stronger but controlled color system
+- Polished knockout-tree presentation
+- Professional analytical tone
+
+Visual Design v1 was the previous Financial Times-inspired editorial aesthetic with warm paper background and restrained newspaper-like data-publication feel. V1 is now superseded because it was too restrained: the MVP was functionally good but visually too empty, quiet, and unattractive. The bracket is the product and must become the immediate visual hero.
 
 ### REQ-STYLE-002 — Original identity
 
@@ -652,33 +668,41 @@ The website must not present itself as a Financial Times product.
 
 It must not use the FT logo, Financial Times trademarks, FT content, or proprietary FT fonts unless the project owner has a documented license.
 
-### REQ-STYLE-003 — Warm paper background
+### REQ-STYLE-003 — Bracket-first first viewport
 
-The default page background should use a warm paper-like tone.
+On desktop, the bracket must be prominently visible in the first viewport.
 
-Recommended direction:
+The page must avoid large empty ceremonial whitespace before the bracket.
 
-```text
-#FFF1E5 or similar warm editorial paper tone
-```
+Navigation and title content must be compact enough that the large bracket panel is visible immediately on landing.
 
-The exact token should be defined in CSS, not hard-coded in components.
+Stage 6.3 / Visual Design v2.1 requires this page hierarchy:
 
-### REQ-STYLE-004 — Restrained colour palette
+1. Title / nav row
+2. Bracket
+3. Model status, scenario controls, champion summary, and reset controls
+4. Additional explanations
+5. Footer
 
-The UI must use a restrained colour palette.
+The bracket must appear immediately after the title/header area. Model controls, champion summary, and scenario panels must not push the bracket downward or make it visually subordinate.
 
-Recommended colour roles:
+### REQ-STYLE-004 — Dark bracket panel and controlled palette
 
-- Warm paper background
-- Off-white or pale surface cards
+The UI must use a light page shell around a dark bracket panel/canvas.
+
+Recommended color roles:
+
+- Light page shell
+- Dark navy/charcoal bracket panel
+- Off-white or deep slate match nodes
 - Dark ink text
 - Muted secondary text
-- Fine border/rule colour
-- Restrained teal or similar accent for links and selected states
-- Muted red and green only for errors/success/official states
+- Muted slate connector lines
+- Gold/amber for final or champion-path emphasis
+- Teal/green for selected winners and user picks
+- Grey/desaturated lower-opacity losing states
 
-The UI must not use aggressive sportsbook-style colours.
+The UI must not use aggressive sportsbook colors, over-bright neon, excessive beige, pastel SaaS styling, or childish sports-broadcast graphics.
 
 ### REQ-STYLE-005 — Editorial typography
 
@@ -715,9 +739,30 @@ frontend/src/styles/components.css
 
 React components should consume CSS classes or tokens rather than hard-coded inline styling.
 
-### REQ-STYLE-008 — Newspaper-style data hierarchy
+### REQ-STYLE-008 — Knockout-tree bracket hierarchy
 
-The bracket, champion summary, and method notes should be styled as a calm editorial data feature.
+The bracket must be presented as a polished tournament-tree diagram:
+
+- Left half of bracket
+- Central final area
+- Right half of bracket
+- Visible connector lines
+- Round labels that are present but not oversized
+- Compact match nodes
+
+The structure must be understandable at a glance and feel like a real knockout wall chart, not a generic list of cards.
+
+Winner and loser states must be visual:
+
+- Winners should be highlighted.
+- Losers should be greyed out, desaturated, or lower opacity.
+- Large textual `WIN` labels inside team names must not be used.
+
+Country labels in bracket nodes must not wrap mid-word. If full country names do not fit, use FIFA-style three-letter codes in compact nodes. Full names may appear in accessible labels, title text, tooltips, or detail states.
+
+If `flag_mode = "asset"`, the flag displayed in bracket nodes and summaries must be the local image from `flag_value`. The compact team label may use a FIFA-style code, but the flag itself must not be replaced by ISO alpha-2 text when a valid local asset is available.
+
+If a local asset fails to load, the UI must fall back gracefully to a short text label such as the FIFA code or short name.
 
 The UI should use:
 
@@ -762,6 +807,8 @@ The implementation must follow:
 ```text
 docs/visual_design.md
 ```
+
+The implementation must follow the Visual Design v2 section in that document, not the superseded v1 FT-inspired direction.
 
 unless that document is explicitly revised.
 
@@ -1411,7 +1458,7 @@ The MVP is acceptable when all of the following are true:
 12. Missing or invalid source data fails validation clearly.
 13. The app can be deployed as a static website.
 14. The UI is readable, accessible, and suitable for public viewing.
-15. The UI follows the FT-inspired editorial visual direction defined in `docs/visual_design.md`.
+15. The UI follows the Visual Design v2/v2.1 bracket-first direction defined in `docs/visual_design.md`.
 16. No FT logos, trademarks, proprietary fonts, or FT content are included without license.
 15. Source metadata is visible or available in the generated frontend data.
 

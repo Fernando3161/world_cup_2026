@@ -37,6 +37,7 @@ Required MVP source files:
 - `data/manual/teams.csv`
 - `data/snapshots/ratings.csv`
 - `data/manual/source_catalog.json`
+- `frontend/public/flags/*.svg`
 
 Generated frontend data target:
 
@@ -80,6 +81,8 @@ python scripts/generate_frontend_data.py
 ```
 
 The generator also writes `data/frontend/tournament.json` as a build artifact copy. Source data remains authoritative; generated JSON should be reproducible from the committed source files and scripts.
+
+Flag assets for the current MVP teams are local SVG files in `frontend/public/flags`. They are copied from the MIT-licensed [`flag-icons`](https://github.com/lipis/flag-icons) project and served statically by the frontend. The runtime app does not fetch remote flag images.
 
 ## Frontend Development
 

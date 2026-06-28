@@ -1,33 +1,33 @@
 team_id,display_name,short_name,flag_mode,flag_value,fifa_code,iso_alpha2,iso_alpha3,confederation,notes
-t01,Brazil,Brazil,asset,/flags/bra.svg,BRA,BR,BRA,CONMEBOL,Temporary test team past champion
-t02,Austria,Austria,asset,/flags/aut.svg,AUT,AT,AUT,UEFA,Temporary Italy replacement; qualified World Cup 2026 team
-t03,Germany,Germany,asset,/flags/ger.svg,GER,DE,DEU,UEFA,Temporary test team past champion
-t04,Argentina,Argentina,asset,/flags/arg.svg,ARG,AR,ARG,CONMEBOL,Temporary test team past champion
-t05,Uruguay,Uruguay,asset,/flags/uru.svg,URU,UY,URY,CONMEBOL,Temporary test team past champion and World Cup 2026 qualified team
-t06,France,France,asset,/flags/fra.svg,FRA,FR,FRA,UEFA,Temporary test team past champion
-t07,England,England,asset,/flags/eng.svg,ENG,GB,GBR,UEFA,Temporary test team past champion
-t08,Spain,Spain,asset,/flags/esp.svg,ESP,ES,ESP,UEFA,Temporary test team past champion
-t09,Portugal,Portugal,asset,/flags/por.svg,POR,PT,PRT,UEFA,Temporary test team
-t10,Netherlands,Netherlands,asset,/flags/ned.svg,NED,NL,NLD,UEFA,Temporary test team
-t11,Belgium,Belgium,asset,/flags/bel.svg,BEL,BE,BEL,UEFA,Temporary test team
-t12,Colombia,Colombia,asset,/flags/col.svg,COL,CO,COL,CONMEBOL,Temporary test team
-t13,Croatia,Croatia,asset,/flags/cro.svg,CRO,HR,HRV,UEFA,Temporary test team
-t14,Morocco,Morocco,asset,/flags/mar.svg,MAR,MA,MAR,CAF,Temporary test team
-t15,Switzerland,Switzerland,asset,/flags/sui.svg,SUI,CH,CHE,UEFA,Temporary test team
-t16,United States,USA,asset,/flags/usa.svg,USA,US,USA,CONCACAF,Temporary test team
-t17,Mexico,Mexico,asset,/flags/mex.svg,MEX,MX,MEX,CONCACAF,Temporary test team
-t18,Japan,Japan,asset,/flags/jpn.svg,JPN,JP,JPN,AFC,Temporary test team
-t19,Canada,Canada,asset,/flags/can.svg,CAN,CA,CAN,CONCACAF,Temporary test team
-t20,Australia,Australia,asset,/flags/aus.svg,AUS,AU,AUS,AFC,Temporary test team
-t21,Senegal,Senegal,asset,/flags/sen.svg,SEN,SN,SEN,CAF,Temporary test team
-t22,Norway,Norway,asset,/flags/nor.svg,NOR,NO,NOR,UEFA,Temporary test team
-t23,Sweden,Sweden,asset,/flags/swe.svg,SWE,SE,SWE,UEFA,Temporary test team
-t24,Ivory Coast,Ivory Coast,asset,/flags/civ.svg,CIV,CI,CIV,CAF,Temporary test team
-t25,Egypt,Egypt,asset,/flags/egy.svg,EGY,EG,EGY,CAF,Temporary test team
-t26,South Africa,South Africa,asset,/flags/rsa.svg,RSA,ZA,ZAF,CAF,Temporary test team
-t27,Paraguay,Paraguay,asset,/flags/par.svg,PAR,PY,PRY,CONMEBOL,Temporary test team
-t28,Bosnia and Herzegovina,Bosnia,asset,/flags/bih.svg,BIH,BA,BIH,UEFA,Temporary test team
-t29,Ecuador,Ecuador,asset,/flags/ecu.svg,ECU,EC,ECU,CONMEBOL,Temporary test team
-t30,Algeria,Algeria,asset,/flags/dza.svg,DZA,DZ,DZA,CAF,Temporary test team
-t31,Ghana,Ghana,asset,/flags/gha.svg,GHA,GH,GHA,CAF,Temporary test team
-t32,Cape Verde,Cape Verde,asset,/flags/cpv.svg,CPV,CV,CPV,CAF,Temporary test team
+rsa,South Africa,South Africa,asset,/flags/rsa.svg,RSA,ZA,ZAF,CAF,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+can,Canada,Canada,asset,/flags/can.svg,CAN,CA,CAN,CONCACAF,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+ger,Germany,Germany,asset,/flags/ger.svg,GER,DE,DEU,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+par,Paraguay,Paraguay,asset,/flags/par.svg,PAR,PY,PRY,CONMEBOL,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+ned,Netherlands,Netherlands,asset,/flags/ned.svg,NED,NL,NLD,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+mar,Morocco,Morocco,asset,/flags/mar.svg,MAR,MA,MAR,CAF,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+bra,Brazil,Brazil,asset,/flags/bra.svg,BRA,BR,BRA,CONMEBOL,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+jpn,Japan,Japan,asset,/flags/jpn.svg,JPN,JP,JPN,AFC,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+fra,France,France,asset,/flags/fra.svg,FRA,FR,FRA,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+swe,Sweden,Sweden,asset,/flags/swe.svg,SWE,SE,SWE,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+civ,Cote d'Ivoire,CIV,asset,/flags/civ.svg,CIV,CI,CIV,CAF,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+nor,Norway,Norway,asset,/flags/nor.svg,NOR,NO,NOR,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+mex,Mexico,Mexico,asset,/flags/mex.svg,MEX,MX,MEX,CONCACAF,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+ecu,Ecuador,Ecuador,asset,/flags/ecu.svg,ECU,EC,ECU,CONMEBOL,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+eng,England,England,asset,/flags/eng.svg,ENG,GB,GBR,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+cod,DR Congo,DR Congo,asset,/flags/cod.svg,COD,CD,COD,CAF,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+usa,United States,USA,asset,/flags/usa.svg,USA,US,USA,CONCACAF,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+bih,Bosnia and Herzegovina,Bosnia,asset,/flags/bih.svg,BIH,BA,BIH,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+bel,Belgium,Belgium,asset,/flags/bel.svg,BEL,BE,BEL,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+sen,Senegal,Senegal,asset,/flags/sen.svg,SEN,SN,SEN,CAF,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+por,Portugal,Portugal,asset,/flags/por.svg,POR,PT,PRT,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+cro,Croatia,Croatia,asset,/flags/cro.svg,CRO,HR,HRV,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+esp,Spain,Spain,asset,/flags/esp.svg,ESP,ES,ESP,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+aut,Austria,Austria,asset,/flags/aut.svg,AUT,AT,AUT,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+sui,Switzerland,Switzerland,asset,/flags/sui.svg,SUI,CH,CHE,UEFA,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+dza,Algeria,Algeria,asset,/flags/dza.svg,DZA,DZ,DZA,CAF,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+arg,Argentina,Argentina,asset,/flags/arg.svg,ARG,AR,ARG,CONMEBOL,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+cpv,Cape Verde,Cape Verde,asset,/flags/cpv.svg,CPV,CV,CPV,CAF,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+col,Colombia,Colombia,asset,/flags/col.svg,COL,CO,COL,CONMEBOL,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+gha,Ghana,Ghana,asset,/flags/gha.svg,GHA,GH,GHA,CAF,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+aus,Australia,Australia,asset,/flags/aus.svg,AUS,AU,AUS,AFC,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.
+egy,Egypt,Egypt,asset,/flags/egy.svg,EGY,EG,EGY,CAF,Round-of-32 team from Wikipedia knockout-stage snapshot retrieved 2026-06-28T11:07:51Z.

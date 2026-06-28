@@ -30,6 +30,14 @@
   color: var(--color-accent-dark);
 }
 
+.site-subtitle {
+  max-width: 72ch;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
 .site-nav button {
   padding: var(--space-2) 0;
   border: 0;
@@ -59,7 +67,7 @@
 
 .data-note {
   display: grid;
-  gap: var(--space-1);
+  gap: var(--space-2);
   padding: var(--space-3);
   border-radius: var(--radius-medium);
   color: var(--color-muted);
@@ -166,18 +174,18 @@
 
 .champion-summary,
 .method-notes {
-  padding: var(--space-3);
+  padding: var(--space-4);
   border-radius: var(--radius-medium);
 }
 
 .champion-summary .section-heading {
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--space-3);
   padding-top: 0;
   border-top: 0;
 }
 
 .champion-summary .section-heading h2 {
-  font-size: 1rem;
+  font-size: 1.18rem;
 }
 
 .champion-list {
@@ -190,10 +198,10 @@
 
 .champion-row {
   display: grid;
-  grid-template-columns: 1.2rem minmax(0, 1fr) auto;
+  grid-template-columns: 1.35rem minmax(0, 1fr) auto;
   gap: var(--space-2);
   align-items: center;
-  padding: 0.38rem 0;
+  padding: 0.58rem 0;
   border-top: var(--rule-thin) solid var(--color-rule);
 }
 
@@ -205,6 +213,7 @@
   color: var(--color-muted);
   font-family: var(--font-mono);
   font-size: 0.72rem;
+  font-weight: 800;
 }
 
 .champion-probability,
@@ -214,14 +223,15 @@
 
 .champion-probability {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: 1.24rem;
   font-weight: 700;
 }
 
 .probability-bar {
   grid-column: 2 / 4;
-  height: 0.22rem;
+  height: 0.28rem;
   overflow: hidden;
+  border-radius: 999px;
   background: var(--color-surface-muted);
 }
 
@@ -229,6 +239,58 @@
   display: block;
   height: 100%;
   background: var(--color-accent);
+}
+
+.champion-row:first-child .champion-probability {
+  color: var(--color-accent-dark);
+  font-size: 1.45rem;
+}
+
+.champion-row:first-child .team-name {
+  font-weight: 900;
+}
+
+.bracket-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.bracket-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  white-space: nowrap;
+}
+
+.legend-key {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 2px;
+}
+
+.legend-key-model {
+  background: var(--color-accent);
+}
+
+.legend-key-user {
+  border: var(--rule-thin) solid var(--color-accent);
+  background: rgb(15 159 142 / 0.18);
+  box-shadow: inset 0 0 0 1px rgb(15 159 142 / 0.5);
+}
+
+.legend-key-eliminated {
+  background: var(--color-loser);
+  opacity: 0.52;
 }
 
 .bracket-connectors path {
@@ -367,13 +429,13 @@ button.team-choice:hover {
 
 .team-flag {
   display: inline-flex;
-  width: 1.5rem;
-  height: 1.05rem;
-  flex: 0 0 1.5rem;
+  width: 1.72rem;
+  height: 1.16rem;
+  flex: 0 0 1.72rem;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 3px;
   color: var(--color-panel-muted);
   font-family: var(--font-mono);
   font-size: 0.58rem;
@@ -381,15 +443,17 @@ button.team-choice:hover {
 }
 
 .team-flag--asset {
-  background: rgb(255 255 255 / 0.1);
-  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.18);
+  background: rgb(255 255 255 / 0.9);
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.28),
+    0 2px 5px rgb(0 0 0 / 0.22);
 }
 
 .team-flag--asset img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .team-flag--emoji {
@@ -533,9 +597,22 @@ button.team-choice:hover {
   gap: var(--space-4);
 }
 
+.modal-copy section {
+  display: grid;
+  gap: var(--space-2);
+}
+
 .modal-copy p,
 .modal-copy ul {
   margin-bottom: 0;
+}
+
+.modal-copy h3 {
+  margin-bottom: 0;
+}
+
+.modal-copy ul {
+  padding-left: 1.2rem;
 }
 
 .model-explainer pre {
@@ -555,6 +632,10 @@ button.team-choice:hover {
 
   .site-title-block h1 {
     font-size: 1.35rem;
+  }
+
+  .bracket-legend {
+    justify-content: flex-start;
   }
 }
 

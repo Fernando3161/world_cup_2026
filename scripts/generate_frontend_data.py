@@ -26,8 +26,11 @@ def build_frontend_data(project_data: ProjectData) -> dict[str, Any]:
             "stage": "knockout",
             "starts_at_round": "R32",
             "generated_at": datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
-            "data_version": "stage-2-placeholder-v1",
-            "data_note": "Placeholder/test teams and ratings for MVP data-contract validation.",
+            "data_version": "wikipedia-r32-footballratings-2026-06-28",
+            "data_note": (
+                "Round-of-32 fixtures are parsed from a local Wikipedia knockout-stage snapshot; "
+                "ratings are parsed from a local FootballRatings.org snapshot dated 2026-06-28."
+            ),
         },
         "sources": project_data.sources,
         "models": {

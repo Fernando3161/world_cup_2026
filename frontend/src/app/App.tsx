@@ -107,16 +107,17 @@ export function App() {
 
         <section className="forecast-note-row" aria-label="Forecast summary">
           <p className="standfirst">
-            A browser-side rating model for the knockout stage. Pick match
-            winners to redraw the path to the final and update the title
-            probabilities without any runtime server.
+            Use the bracket to test tournament paths. Each selection is local
+            to your browser and recalculates future matchups plus the title
+            probability table.
           </p>
           <aside className="data-note" aria-label="Forecast data note">
             <span className="note-label">Data status</span>
-            <strong>Placeholder fixture data</strong>
+            <strong>Pre-knockout snapshot</strong>
             <span>
-              Ratings and teams are test values for the MVP data contract, not
-              real tournament data.
+              Fixtures are loaded from a local Wikipedia knockout-stage
+              snapshot. Ratings are a local FootballRatings.org snapshot dated
+              2026-06-28.
             </span>
           </aside>
         </section>
@@ -131,15 +132,22 @@ export function App() {
       >
         <div className="modal-copy">
           <p>
-            FPV is building this as a compact public forecasting project: part
-            software exercise, part statistical explainer, and part editorial
-            data interface.
+            This project is a static public forecast interface for exploring a
+            32-team World Cup knockout bracket. It is built as a browser-side
+            data product: the deployed site ships static JSON and runs the
+            bracket calculations locally.
           </p>
           <p>
-            The goal is to keep the model transparent enough to inspect while
-            making the bracket useful for scenario thinking. The current MVP is
-            intentionally local and static, so every public interaction runs in
-            the browser.
+            The emphasis is transparent scenario analysis. A user can change
+            any match winner, see that team advance through the correct path,
+            and inspect how title probabilities respond without a backend,
+            account system, or live data feed.
+          </p>
+          <p>
+            The current deployment uses a local Round-of-32 fixture snapshot
+            and a local pre-knockout rating snapshot. Future updates should
+            follow the same reviewed local validation and static build
+            pipeline.
           </p>
         </div>
       </Modal>
@@ -151,7 +159,7 @@ export function App() {
       >
         <div className="modal-copy model-explainer">
           <section>
-            <h3>Simple Elo model</h3>
+            <h3>Rating-difference probability</h3>
             <p>
               For two teams A and B with ratings R_A and R_B, the MVP converts
               rating difference into an advancement probability using the
@@ -168,6 +176,24 @@ P(B advances) = 1 - P(A advances)`}
             </p>
           </section>
           <section>
+            <h3>Exact bracket propagation</h3>
+            <p>
+              The bracket is resolved from the static tournament structure. In
+              each match, the selected winner feeds into the documented
+              downstream match and slot. Champion probabilities are propagated
+              through the bracket exactly from pairwise match probabilities.
+            </p>
+          </section>
+          <section>
+            <h3>Baseline vs current scenario</h3>
+            <p>
+              The baseline forecast is the model-only path with no user picks.
+              The current scenario applies your selected winners where valid,
+              clears impossible downstream picks, and recalculates the affected
+              matchups and title probabilities.
+            </p>
+          </section>
+          <section>
             <h3>Historically informed Elo</h3>
             <p>
               Not implemented yet. The reserved future model will calibrate the
@@ -179,9 +205,10 @@ P(B advances) = 1 - P(A advances)`}
           <section>
             <h3>Assumptions and limits</h3>
             <ul>
-              <li>No player, injury, venue, travel, or lineup adjustments.</li>
-              <li>No live data fetches during user interaction.</li>
-              <li>Current MVP data uses placeholder teams and ratings.</li>
+              <li>The model treats advancement as a single match outcome.</li>
+              <li>No player, injury, venue, travel, or lineup adjustments are included.</li>
+              <li>No live data is fetched during user interaction.</li>
+              <li>The current public build uses static snapshots, not live feeds.</li>
             </ul>
           </section>
         </div>
@@ -194,10 +221,36 @@ P(B advances) = 1 - P(A advances)`}
       >
         <div className="modal-copy">
           <p>
-            The public app reads generated static JSON. Source snapshots are
+            The public app reads generated static JSON. Source files are
             prepared locally, validated in Python, and packaged into the Vite
-            build.
+            build so the deployed site stays fully static.
           </p>
+          <section>
+            <h3>Current snapshot status</h3>
+            <p>
+              The current bracket is parsed from a locally saved Wikipedia
+              knockout-stage page. Ratings are parsed from a locally saved
+              FootballRatings.org page dated 2026-06-28, then stored as a CSV
+              snapshot before frontend generation.
+            </p>
+          </section>
+          <section>
+            <h3>Future rating snapshots</h3>
+            <p>
+              Updated forecast builds should use reviewed local rating
+              snapshots from an Elo-style national-team source, with the
+              source name, snapshot date, retrieval date, and URL preserved
+              before frontend generation.
+            </p>
+          </section>
+          <section>
+            <h3>Reproducible local pipeline</h3>
+            <p>
+              The pipeline is source CSV/JSON to Python validation to generated
+              frontend JSON to static React build. The browser does not scrape
+              ratings, query a database, or call a model server at runtime.
+            </p>
+          </section>
           <dl className="source-list">
             {tournamentData.sources.map((source) => (
               <div key={source.source_id}>
@@ -223,6 +276,22 @@ P(B advances) = 1 - P(A advances)`}
                 <span>
                   Future offline calibration input; not part of the current
                   MVP forecast calculation.
+                </span>
+              </dd>
+            </div>
+            <div>
+              <dt>Flag assets</dt>
+              <dd>
+                <a
+                  href="https://github.com/lipis/flag-icons"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  flag-icons
+                </a>
+                <span>
+                  Selected MIT-licensed SVG files are committed locally under
+                  frontend/public/flags and served as static assets.
                 </span>
               </dd>
             </div>

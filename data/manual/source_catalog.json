@@ -15,17 +15,17 @@
       "source_type": "mirror",
       "url": "https://www.footballratings.org/",
       "license_note": "External mirror; review source terms before publication.",
-      "retrieval_method": "manual CSV import or build-time fetch when a CSV source is available",
-      "notes": "Possible technical fallback for ratings sourced from World Football Elo Ratings."
+      "retrieval_method": "build-time HTML snapshot parsed from data/raw/footballratings/footballratings_snapshot.html",
+      "notes": "Current pre-knockout rating snapshot dated 2026-06-28. The site describes its rankings as updated nightly from eloratings.net."
     },
     {
-      "source_id": "placeholder_test_ratings",
-      "display_name": "Placeholder test ratings",
-      "source_type": "current_elo",
-      "url": "local://placeholder-test-ratings",
-      "license_note": "Project-local test fixture only; not real Elo data.",
-      "retrieval_method": "manual test fixture",
-      "notes": "Used only to validate the MVP data contract before real local rating snapshots are added."
+      "source_id": "wikipedia_2026_knockout_stage",
+      "display_name": "Wikipedia 2026 FIFA World Cup knockout stage",
+      "source_type": "knockout_bracket",
+      "url": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage",
+      "license_note": "Wikipedia content is available under CC BY-SA; review attribution requirements before publication.",
+      "retrieval_method": "build-time HTML snapshot parsed from data/raw/wikipedia/2026_fifa_world_cup_knockout_stage.html",
+      "notes": "Round-of-32 fixture source for the Stage 6.2 MVP data refresh."
     },
     {
       "source_id": "flag_icons",

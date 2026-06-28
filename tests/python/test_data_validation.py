@@ -49,7 +49,7 @@ def test_duplicate_team_id_fails(tmp_path: Path) -> None:
     rows[1]["team_id"] = rows[0]["team_id"]
     _write_csv(teams_path, rows)
 
-    with pytest.raises(DataValidationError, match="duplicate team_id 't01'"):
+    with pytest.raises(DataValidationError, match=f"duplicate team_id '{rows[0]['team_id']}'"):
         validate_project_data(repo_root)
 
 
@@ -67,10 +67,11 @@ def test_duplicate_match_id_fails(tmp_path: Path) -> None:
 def test_missing_rating_fails(tmp_path: Path) -> None:
     repo_root = _copy_data_tree(tmp_path)
     ratings_path = repo_root / "data/snapshots/ratings.csv"
-    rows = [row for row in _read_csv(ratings_path) if row["team_id"] != "t01"]
+    removed_team_id = _read_csv(ratings_path)[0]["team_id"]
+    rows = [row for row in _read_csv(ratings_path) if row["team_id"] != removed_team_id]
     _write_csv(ratings_path, rows)
 
-    with pytest.raises(DataValidationError, match="Missing ratings.*t01"):
+    with pytest.raises(DataValidationError, match=f"Missing ratings.*{removed_team_id}"):
         validate_project_data(repo_root)
 
 

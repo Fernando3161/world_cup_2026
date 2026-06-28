@@ -29,15 +29,23 @@ npm install
 
 ## Data Preparation
 
-The current repository data includes placeholder/test source data for validating the MVP data contract. These are not real teams, ratings, or Elo values.
+The current repository data uses local build-time snapshots:
+
+- Wikipedia knockout-stage HTML for the 2026 Round of 32 bracket.
+- FootballRatings.org HTML for the current Elo-style rating table dated 2026-06-28.
+
+The frontend never fetches these sources at runtime. Refreshes should be done locally, reviewed, validated, and committed as static source files.
 
 Required MVP source files:
 
 - `data/manual/bracket.json`
 - `data/manual/teams.csv`
+- `data/manual/team_aliases.csv`
 - `data/snapshots/ratings.csv`
 - `data/manual/source_catalog.json`
 - `frontend/public/flags/*.svg`
+- `data/raw/wikipedia/2026_fifa_world_cup_knockout_stage.html`
+- `data/raw/footballratings/footballratings_snapshot.html`
 
 Generated frontend data target:
 
@@ -48,6 +56,22 @@ Validate source data:
 ```powershell
 python scripts/validate_data.py
 ```
+
+Refresh the bracket and rating source files from the committed raw HTML snapshots:
+
+```powershell
+python scripts/prepare_bracket.py
+```
+
+That script parses the local snapshots, writes `data/manual/teams.csv`, `data/manual/bracket.json`, `data/manual/team_aliases.csv`, and `data/snapshots/ratings.csv`, validates the result, and regenerates `frontend/public/data/tournament.json`.
+
+To refresh the raw HTML snapshots first, run the same script with explicit setup-time fetching:
+
+```powershell
+python scripts/prepare_bracket.py --fetch-snapshots
+```
+
+Review the changed raw snapshots and normalized data before committing. Do not run live source fetching from the frontend or as a hidden runtime dependency.
 
 Import a build-time current Elo snapshot from a manually prepared CSV:
 

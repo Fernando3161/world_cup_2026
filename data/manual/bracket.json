@@ -30,144 +30,256 @@
   "matches": [
     {
       "match_id": "R32-01",
+      "source_match_id": "Match 73",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t01" },
-      "slot_b": { "slot_type": "team", "team_id": "t02" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "rsa"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "can"
+      },
       "feeds_to_match_id": "R16-01",
       "feeds_to_slot": "A",
       "display_order": 1
     },
     {
       "match_id": "R32-02",
+      "source_match_id": "Match 74",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t03" },
-      "slot_b": { "slot_type": "team", "team_id": "t04" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "ger"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "par"
+      },
       "feeds_to_match_id": "R16-01",
       "feeds_to_slot": "B",
       "display_order": 2
     },
     {
       "match_id": "R32-03",
+      "source_match_id": "Match 75",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t05" },
-      "slot_b": { "slot_type": "team", "team_id": "t06" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "ned"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "mar"
+      },
       "feeds_to_match_id": "R16-02",
       "feeds_to_slot": "A",
       "display_order": 3
     },
     {
       "match_id": "R32-04",
+      "source_match_id": "Match 76",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t07" },
-      "slot_b": { "slot_type": "team", "team_id": "t08" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "bra"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "jpn"
+      },
       "feeds_to_match_id": "R16-02",
       "feeds_to_slot": "B",
       "display_order": 4
     },
     {
       "match_id": "R32-05",
+      "source_match_id": "Match 77",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t09" },
-      "slot_b": { "slot_type": "team", "team_id": "t10" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "fra"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "swe"
+      },
       "feeds_to_match_id": "R16-03",
       "feeds_to_slot": "A",
       "display_order": 5
     },
     {
       "match_id": "R32-06",
+      "source_match_id": "Match 78",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t11" },
-      "slot_b": { "slot_type": "team", "team_id": "t12" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "civ"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "nor"
+      },
       "feeds_to_match_id": "R16-03",
       "feeds_to_slot": "B",
       "display_order": 6
     },
     {
       "match_id": "R32-07",
+      "source_match_id": "Match 79",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t13" },
-      "slot_b": { "slot_type": "team", "team_id": "t14" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "mex"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "ecu"
+      },
       "feeds_to_match_id": "R16-04",
       "feeds_to_slot": "A",
       "display_order": 7
     },
     {
       "match_id": "R32-08",
+      "source_match_id": "Match 80",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t15" },
-      "slot_b": { "slot_type": "team", "team_id": "t16" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "eng"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "cod"
+      },
       "feeds_to_match_id": "R16-04",
       "feeds_to_slot": "B",
       "display_order": 8
     },
     {
       "match_id": "R32-09",
+      "source_match_id": "Match 81",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t17" },
-      "slot_b": { "slot_type": "team", "team_id": "t18" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "usa"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "bih"
+      },
       "feeds_to_match_id": "R16-05",
       "feeds_to_slot": "A",
       "display_order": 9
     },
     {
       "match_id": "R32-10",
+      "source_match_id": "Match 82",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t19" },
-      "slot_b": { "slot_type": "team", "team_id": "t20" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "bel"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "sen"
+      },
       "feeds_to_match_id": "R16-05",
       "feeds_to_slot": "B",
       "display_order": 10
     },
     {
       "match_id": "R32-11",
+      "source_match_id": "Match 83",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t21" },
-      "slot_b": { "slot_type": "team", "team_id": "t22" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "por"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "cro"
+      },
       "feeds_to_match_id": "R16-06",
       "feeds_to_slot": "A",
       "display_order": 11
     },
     {
       "match_id": "R32-12",
+      "source_match_id": "Match 84",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t23" },
-      "slot_b": { "slot_type": "team", "team_id": "t24" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "esp"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "aut"
+      },
       "feeds_to_match_id": "R16-06",
       "feeds_to_slot": "B",
       "display_order": 12
     },
     {
       "match_id": "R32-13",
+      "source_match_id": "Match 85",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t25" },
-      "slot_b": { "slot_type": "team", "team_id": "t26" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "sui"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "dza"
+      },
       "feeds_to_match_id": "R16-07",
       "feeds_to_slot": "A",
       "display_order": 13
     },
     {
       "match_id": "R32-14",
+      "source_match_id": "Match 86",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t27" },
-      "slot_b": { "slot_type": "team", "team_id": "t28" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "arg"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "cpv"
+      },
       "feeds_to_match_id": "R16-07",
       "feeds_to_slot": "B",
       "display_order": 14
     },
     {
       "match_id": "R32-15",
+      "source_match_id": "Match 87",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t29" },
-      "slot_b": { "slot_type": "team", "team_id": "t30" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "col"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "gha"
+      },
       "feeds_to_match_id": "R16-08",
       "feeds_to_slot": "A",
       "display_order": 15
     },
     {
       "match_id": "R32-16",
+      "source_match_id": "Match 88",
       "round_id": "R32",
-      "slot_a": { "slot_type": "team", "team_id": "t31" },
-      "slot_b": { "slot_type": "team", "team_id": "t32" },
+      "slot_a": {
+        "slot_type": "team",
+        "team_id": "aus"
+      },
+      "slot_b": {
+        "slot_type": "team",
+        "team_id": "egy"
+      },
       "feeds_to_match_id": "R16-08",
       "feeds_to_slot": "B",
       "display_order": 16
@@ -175,8 +287,14 @@
     {
       "match_id": "R16-01",
       "round_id": "R16",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "R32-01" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "R32-02" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-01"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-02"
+      },
       "feeds_to_match_id": "QF-01",
       "feeds_to_slot": "A",
       "display_order": 1
@@ -184,8 +302,14 @@
     {
       "match_id": "R16-02",
       "round_id": "R16",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "R32-03" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "R32-04" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-03"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-04"
+      },
       "feeds_to_match_id": "QF-01",
       "feeds_to_slot": "B",
       "display_order": 2
@@ -193,8 +317,14 @@
     {
       "match_id": "R16-03",
       "round_id": "R16",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "R32-05" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "R32-06" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-05"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-06"
+      },
       "feeds_to_match_id": "QF-02",
       "feeds_to_slot": "A",
       "display_order": 3
@@ -202,8 +332,14 @@
     {
       "match_id": "R16-04",
       "round_id": "R16",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "R32-07" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "R32-08" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-07"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-08"
+      },
       "feeds_to_match_id": "QF-02",
       "feeds_to_slot": "B",
       "display_order": 4
@@ -211,8 +347,14 @@
     {
       "match_id": "R16-05",
       "round_id": "R16",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "R32-09" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "R32-10" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-09"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-10"
+      },
       "feeds_to_match_id": "QF-03",
       "feeds_to_slot": "A",
       "display_order": 5
@@ -220,8 +362,14 @@
     {
       "match_id": "R16-06",
       "round_id": "R16",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "R32-11" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "R32-12" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-11"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-12"
+      },
       "feeds_to_match_id": "QF-03",
       "feeds_to_slot": "B",
       "display_order": 6
@@ -229,8 +377,14 @@
     {
       "match_id": "R16-07",
       "round_id": "R16",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "R32-13" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "R32-14" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-13"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-14"
+      },
       "feeds_to_match_id": "QF-04",
       "feeds_to_slot": "A",
       "display_order": 7
@@ -238,8 +392,14 @@
     {
       "match_id": "R16-08",
       "round_id": "R16",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "R32-15" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "R32-16" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-15"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R32-16"
+      },
       "feeds_to_match_id": "QF-04",
       "feeds_to_slot": "B",
       "display_order": 8
@@ -247,8 +407,14 @@
     {
       "match_id": "QF-01",
       "round_id": "QF",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "R16-01" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "R16-02" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-01"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-02"
+      },
       "feeds_to_match_id": "SF-01",
       "feeds_to_slot": "A",
       "display_order": 1
@@ -256,8 +422,14 @@
     {
       "match_id": "QF-02",
       "round_id": "QF",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "R16-03" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "R16-04" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-03"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-04"
+      },
       "feeds_to_match_id": "SF-01",
       "feeds_to_slot": "B",
       "display_order": 2
@@ -265,8 +437,14 @@
     {
       "match_id": "QF-03",
       "round_id": "QF",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "R16-05" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "R16-06" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-05"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-06"
+      },
       "feeds_to_match_id": "SF-02",
       "feeds_to_slot": "A",
       "display_order": 3
@@ -274,8 +452,14 @@
     {
       "match_id": "QF-04",
       "round_id": "QF",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "R16-07" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "R16-08" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-07"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "R16-08"
+      },
       "feeds_to_match_id": "SF-02",
       "feeds_to_slot": "B",
       "display_order": 4
@@ -283,8 +467,14 @@
     {
       "match_id": "SF-01",
       "round_id": "SF",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "QF-01" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "QF-02" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "QF-01"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "QF-02"
+      },
       "feeds_to_match_id": "F-01",
       "feeds_to_slot": "A",
       "display_order": 1
@@ -292,8 +482,14 @@
     {
       "match_id": "SF-02",
       "round_id": "SF",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "QF-03" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "QF-04" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "QF-03"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "QF-04"
+      },
       "feeds_to_match_id": "F-01",
       "feeds_to_slot": "B",
       "display_order": 2
@@ -301,8 +497,14 @@
     {
       "match_id": "F-01",
       "round_id": "F",
-      "slot_a": { "slot_type": "winner_of", "source_match_id": "SF-01" },
-      "slot_b": { "slot_type": "winner_of", "source_match_id": "SF-02" },
+      "slot_a": {
+        "slot_type": "winner_of",
+        "source_match_id": "SF-01"
+      },
+      "slot_b": {
+        "slot_type": "winner_of",
+        "source_match_id": "SF-02"
+      },
       "feeds_to_match_id": null,
       "feeds_to_slot": null,
       "display_order": 1

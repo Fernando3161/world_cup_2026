@@ -15,8 +15,10 @@ describe("baseline bracket resolution", () => {
     const ratingsByTeamId = new Map(
       tournamentData.teams.map((team) => [team.team_id, team.rating]),
     );
-    const firstMatchWinner = higherRatedTeam("t01", "t02", ratingsByTeamId);
-    const secondMatchWinner = higherRatedTeam("t03", "t04", ratingsByTeamId);
+    const [firstMatchTeamA, firstMatchTeamB] = fixedTeamIds("R32-01");
+    const [secondMatchTeamA, secondMatchTeamB] = fixedTeamIds("R32-02");
+    const firstMatchWinner = higherRatedTeam(firstMatchTeamA, firstMatchTeamB, ratingsByTeamId);
+    const secondMatchWinner = higherRatedTeam(secondMatchTeamA, secondMatchTeamB, ratingsByTeamId);
     const roundOf16Winner = higherRatedTeam(
       firstMatchWinner,
       secondMatchWinner,
@@ -47,4 +49,17 @@ function higherRatedTeam(
   }
 
   return ratingA >= ratingB ? teamAId : teamBId;
+}
+
+function fixedTeamIds(matchId: string): [string, string] {
+  const match = tournamentData.matches.find((candidate) => candidate.match_id === matchId);
+  if (
+    !match ||
+    match.slot_a.slot_type !== "team" ||
+    match.slot_b.slot_type !== "team"
+  ) {
+    throw new Error(`Missing fixed first-round teams for ${matchId}.`);
+  }
+
+  return [match.slot_a.team_id, match.slot_b.team_id];
 }

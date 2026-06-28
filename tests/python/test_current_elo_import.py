@@ -16,12 +16,10 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 def test_import_manual_current_elo_csv_writes_snapshot_with_metadata(tmp_path: Path) -> None:
     repo_root = _copy_data_tree(tmp_path)
     input_path = tmp_path / "manual_ratings.csv"
+    team_ids = _team_ids(repo_root)
     _write_csv(
         input_path,
-        [
-            {"team_id": f"t{index:02d}", "rating": str(1700 + index)}
-            for index in range(1, 33)
-        ],
+        [{"team_id": team_id, "rating": str(1700 + index)} for index, team_id in enumerate(team_ids, start=1)],
         ["team_id", "rating"],
     )
 
@@ -42,7 +40,7 @@ def test_import_manual_current_elo_csv_writes_snapshot_with_metadata(tmp_path: P
     assert len(rows) == 32
     written = _read_csv(repo_root / "data/snapshots/ratings.csv")
     teams = _read_csv(repo_root / "data/manual/teams.csv")
-    assert written[0]["team_id"] == "t01"
+    assert written[0]["team_id"] == team_ids[0]
     assert written[0]["display_name"] == teams[0]["display_name"]
     assert written[0]["rating"] == "1701"
     assert written[0]["rating_source"] == "Manual World Football Elo snapshot"
@@ -57,28 +55,24 @@ def test_import_manual_current_elo_csv_writes_snapshot_with_metadata(tmp_path: P
 def test_import_missing_bracket_rating_fails_clearly(tmp_path: Path) -> None:
     repo_root = _copy_data_tree(tmp_path)
     input_path = tmp_path / "manual_ratings.csv"
+    team_ids = _team_ids(repo_root)
     _write_csv(
         input_path,
-        [
-            {"team_id": f"t{index:02d}", "rating": str(1700 + index)}
-            for index in range(2, 33)
-        ],
+        [{"team_id": team_id, "rating": str(1700 + index)} for index, team_id in enumerate(team_ids[1:], start=2)],
         ["team_id", "rating"],
     )
 
-    with pytest.raises(RatingSnapshotError, match="Missing ratings.*t01"):
+    with pytest.raises(RatingSnapshotError, match=f"Missing ratings.*{team_ids[0]}"):
         import_ratings_csv(repo_root, input_path, metadata=_valid_metadata())
 
 
 def test_import_requires_source_metadata_when_input_does_not_have_it(tmp_path: Path) -> None:
     repo_root = _copy_data_tree(tmp_path)
     input_path = tmp_path / "manual_ratings.csv"
+    team_ids = _team_ids(repo_root)
     _write_csv(
         input_path,
-        [
-            {"team_id": f"t{index:02d}", "rating": str(1700 + index)}
-            for index in range(1, 33)
-        ],
+        [{"team_id": team_id, "rating": str(1700 + index)} for index, team_id in enumerate(team_ids, start=1)],
         ["team_id", "rating"],
     )
 
@@ -108,6 +102,10 @@ def _valid_metadata() -> SnapshotMetadata:
 def _read_csv(path: Path) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8") as file:
         return list(csv.DictReader(file))
+
+
+def _team_ids(repo_root: Path) -> list[str]:
+    return [row["team_id"] for row in _read_csv(repo_root / "data/manual/teams.csv")]
 
 
 def _write_csv(path: Path, rows: list[dict[str, str]], fieldnames: list[str]) -> None:

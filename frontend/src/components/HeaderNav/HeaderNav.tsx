@@ -20,6 +20,10 @@ export function HeaderNav({
             World Cup 2026 Knockout Forecast
           </a>
         </h1>
+        <p className="site-subtitle">
+          A static, browser-side forecasting model that recalculates the full
+          knockout path and title probabilities after every user-selected result.
+        </p>
         <p className="byline">by FPV</p>
       </div>
       <nav className="site-nav" aria-label="Primary navigation">
@@ -33,7 +37,7 @@ export function HeaderNav({
           Data Sources
         </button>
         <a href={githubUrl} target="_blank" rel="noreferrer">
-          Github
+          GitHub
         </a>
       </nav>
     </header>

@@ -66,6 +66,20 @@ export function Bracket({
           Select any team to force a result. The current scenario then
           recalculates every dependent match and the title probabilities.
         </p>
+        <ul className="bracket-legend" aria-label="Bracket visual states">
+          <li>
+            <span className="legend-key legend-key-model" aria-hidden="true" />
+            Model pick
+          </li>
+          <li>
+            <span className="legend-key legend-key-user" aria-hidden="true" />
+            User pick
+          </li>
+          <li>
+            <span className="legend-key legend-key-eliminated" aria-hidden="true" />
+            Eliminated
+          </li>
+        </ul>
       </div>
 
       <div className="bracket-diagram" aria-label="World Cup knockout bracket diagram">

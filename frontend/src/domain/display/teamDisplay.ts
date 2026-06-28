@@ -23,7 +23,7 @@ export function getTeamFlagDisplay(team: Team): TeamFlagDisplay {
   if (team.flag_mode === "asset" && isLocalSvgFlagPath(team.flag_value)) {
     return {
       kind: "asset",
-      src: team.flag_value,
+      src: resolvePublicAssetPath(team.flag_value),
       alt: `${team.display_name} flag`,
       fallbackLabel,
     };
@@ -53,7 +53,23 @@ export function getTeamFlagDisplay(team: Team): TeamFlagDisplay {
 }
 
 function isLocalSvgFlagPath(value: string | undefined) {
-  return Boolean(value && value.startsWith("/flags/") && value.endsWith(".svg"));
+  if (!value) {
+    return false;
+  }
+
+  const normalizedValue = value.trim();
+  return (
+    (normalizedValue.startsWith("/flags/") || normalizedValue.startsWith("flags/")) &&
+    normalizedValue.endsWith(".svg")
+  );
+}
+
+export function resolvePublicAssetPath(value: string) {
+  const basePath = import.meta.env.BASE_URL || "/";
+  const normalizedBasePath = basePath.endsWith("/") ? basePath : `${basePath}/`;
+  const normalizedAssetPath = value.trim().replace(/^\/+/, "");
+
+  return `${normalizedBasePath}${normalizedAssetPath}`;
 }
 
 function hasDisplayValue(value: string | undefined) {

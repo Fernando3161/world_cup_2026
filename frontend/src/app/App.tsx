@@ -83,7 +83,6 @@ export function App() {
         <Bracket
           matches={scenarioForecast.matches}
           tournamentMatches={tournamentData.matches}
-          rounds={tournamentData.rounds}
           teamsById={teamsById}
           onWinnerOverride={handleWinnerOverride}
         />

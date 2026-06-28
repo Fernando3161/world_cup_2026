@@ -123,7 +123,7 @@
   width: 9.6rem;
 }
 
-.mobile-bracket-list {
+.mobile-bracket-pods {
   display: none;
 }
 
@@ -190,12 +190,39 @@
     display: none;
   }
 
-  .mobile-bracket-list {
+  .publication-shell {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .secondary-control-row {
+    order: 1;
+  }
+
+  .bracket-section {
+    order: 2;
+    overflow-x: visible;
+  }
+
+  .forecast-note-row {
+    order: 3;
+  }
+
+  .secondary-control-row .champion-summary {
+    order: 1;
+  }
+
+  .secondary-control-row .control-card {
+    order: 2;
+  }
+
+  .mobile-bracket-pods {
     display: grid;
-    gap: var(--space-6);
-    padding: var(--space-4);
+    gap: var(--space-4);
+    padding: var(--space-3);
     border-radius: 14px;
     background: var(--color-panel);
+    box-shadow: 0 14px 34px rgb(15 23 42 / 0.2);
   }
 
   .round-column {

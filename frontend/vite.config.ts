@@ -14,6 +14,6 @@ export default defineConfig({
   base: normalizeBasePath(process.env.VITE_BASE_PATH),
   plugins: [react()],
   test: {
-    include: ["../tests/frontend/**/*.test.ts", "src/**/*.test.tsx"],
+    include: ["../tests/frontend/**/*.test.{ts,tsx}", "src/**/*.test.tsx"],
   },
 });

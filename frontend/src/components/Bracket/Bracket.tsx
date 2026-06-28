@@ -1,12 +1,12 @@
 import type { CSSProperties } from "react";
 
 import { MatchCard } from "../MatchCard/MatchCard";
-import type { Match, Round, RuntimeMatch, Team } from "../../domain/types";
+import { MobileBracket } from "./MobileBracket";
+import type { Match, RuntimeMatch, Team } from "../../domain/types";
 
 interface BracketProps {
   matches: RuntimeMatch[];
   tournamentMatches: Match[];
-  rounds: Round[];
   teamsById: Map<string, Team>;
   onWinnerOverride: (matchId: string, winnerTeamId: string) => void;
 }
@@ -41,20 +41,12 @@ const ROUND_LABELS = [
 export function Bracket({
   matches,
   tournamentMatches,
-  rounds,
   teamsById,
   onWinnerOverride,
 }: BracketProps) {
   const positions = new Map<string, NodePosition>();
   for (const match of matches) {
     positions.set(match.match_id, getNodePosition(match.match_id, match.round_id));
-  }
-
-  const matchesByRound = new Map<string, RuntimeMatch[]>();
-  for (const match of matches) {
-    const roundMatches = matchesByRound.get(match.round_id) ?? [];
-    roundMatches.push(match);
-    matchesByRound.set(match.round_id, roundMatches);
   }
 
   return (
@@ -146,31 +138,11 @@ export function Bracket({
         })}
       </div>
 
-      <div className="mobile-bracket-list" aria-label="World Cup knockout bracket by round">
-        {rounds.map((round) => (
-          <section
-            className="round-column"
-            key={round.round_id}
-            aria-labelledby={`${round.round_id}-title`}
-          >
-            <h3 id={`${round.round_id}-title`} className="round-title">
-              {round.display_name}
-            </h3>
-            <div className="round-match-list">
-              {[...(matchesByRound.get(round.round_id) ?? [])]
-                .sort((left, right) => left.match_id.localeCompare(right.match_id))
-                .map((match) => (
-                  <MatchCard
-                    key={match.match_id}
-                    match={match}
-                    teamsById={teamsById}
-                    onWinnerOverride={onWinnerOverride}
-                  />
-                ))}
-            </div>
-          </section>
-        ))}
-      </div>
+      <MobileBracket
+        matches={matches}
+        teamsById={teamsById}
+        onWinnerOverride={onWinnerOverride}
+      />
     </section>
   );
 }

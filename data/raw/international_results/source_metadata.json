@@ -1,0 +1,17 @@
+{
+  "source_id": "martj42_international_results",
+  "source_name": "Mart Jurisoo international_results",
+  "source_url": "https://github.com/martj42/international_results",
+  "raw_file_urls": {
+    "results.csv": "https://raw.githubusercontent.com/martj42/international_results/master/results.csv",
+    "shootouts.csv": "https://raw.githubusercontent.com/martj42/international_results/master/shootouts.csv"
+  },
+  "retrieved_at": "2026-06-28T12:37:11Z",
+  "files": [
+    "results.csv",
+    "shootouts.csv"
+  ],
+  "commit_sha": "d5fe0956c6fc1803bf1bf48303b8e75b4db65ef8",
+  "license_note": "External open dataset. Review upstream repository license and attribution requirements before publication.",
+  "parser_script": "fetch_historical_results.py:1"
+}

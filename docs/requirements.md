@@ -368,9 +368,11 @@ At minimum, it should show or make available:
 
 ### REQ-MODEL-008 — Historically informed Elo model
 
-The historically informed Elo model is a future requirement.
+The historically informed Elo model is implemented in Stage 7 as `historically_informed_elo`.
 
 It must not be implemented before the simple Elo model, bracket propagation, overrides, and champion probability calculation are stable and tested.
+
+The implemented Stage 7 model uses local historical result snapshots, reconstructed pre-match Elo features, and an offline calibrated logistic curve exported as compact static frontend data.
 
 ### REQ-MODEL-009 — Historical calibration input
 
@@ -402,7 +404,7 @@ At minimum, it must support:
 
 ### REQ-TOGGLE-002 — Disabled future model
 
-Before the historically informed model is implemented, the frontend may hide it or show it as disabled.
+Before or whenever the historically informed model artifact is unavailable, the frontend may hide it or show it as disabled.
 
 The app must not expose a non-working model toggle.
 

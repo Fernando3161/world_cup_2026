@@ -27,6 +27,16 @@ jobs:
       - name: Validate source data
         run: python scripts/validate_data.py
 
+      - name: Validate local historical source snapshot
+        run: python scripts/fetch_historical_results.py validate-local
+
+      - name: Build historical model artifact
+        run: |
+          python scripts/prepare_historical_results.py
+          python scripts/build_historical_elo.py
+          python scripts/calibrate_historical_model.py
+          python scripts/validate_model.py
+
       - name: Generate frontend data
         run: python scripts/generate_frontend_data.py
 

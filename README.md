@@ -33,6 +33,7 @@ The current repository data uses local build-time snapshots:
 
 - Wikipedia knockout-stage HTML for the 2026 Round of 32 bracket.
 - FootballRatings.org HTML for the current Elo-style rating table dated 2026-06-28.
+- Mart Jurisoo's `international_results` CSV files for historical international match results and shootouts.
 
 The frontend never fetches these sources at runtime. Refreshes should be done locally, reviewed, validated, and committed as static source files.
 
@@ -46,6 +47,9 @@ Required MVP source files:
 - `frontend/public/flags/*.svg`
 - `data/raw/wikipedia/2026_fifa_world_cup_knockout_stage.html`
 - `data/raw/footballratings/footballratings_snapshot.html`
+- `data/raw/international_results/results.csv`
+- `data/raw/international_results/shootouts.csv`
+- `data/raw/international_results/source_metadata.json`
 
 Generated frontend data target:
 
@@ -101,10 +105,36 @@ If the live source is unavailable or is not a CSV endpoint, use `import-csv` wit
 Generate frontend data:
 
 ```powershell
+python scripts/fetch_historical_results.py validate-local
+python scripts/prepare_historical_results.py
+python scripts/build_historical_elo.py
+python scripts/calibrate_historical_model.py
+python scripts/validate_model.py
 python scripts/generate_frontend_data.py
 ```
 
 The generator also writes `data/frontend/tournament.json` as a build artifact copy. Source data remains authoritative; generated JSON should be reproducible from the committed source files and scripts.
+
+To refresh the historical result snapshot manually:
+
+```powershell
+python scripts/fetch_historical_results.py fetch
+```
+
+Review and commit the resulting raw files and `source_metadata.json`. CI and deployment use `validate-local`; they do not fetch historical data from the network.
+
+Historical model artifacts:
+
+- `data/processed/historical_results_normalized.csv`
+- `data/processed/historical_results_excluded.csv`
+- `data/processed/historical_elo_timeseries.csv`
+- `data/processed/historical_match_features.csv`
+- `data/processed/calibrated_model.json`
+- `data/processed/model_validation_report.json`
+
+The historically informed Elo model reconstructs pre-match Elo features locally with initial rating `1500`, constant `K = 20`, no home-field adjustment, and no importance weighting. It fits a one-parameter logistic calibration to historical expected-score targets. Draws without shootouts are target `0.5`; shootout winners are target `1`. The frontend receives only compact calibration parameters, not raw historical match rows.
+
+Limitations: the historical model does not include squads, injuries, tactics, venue effects, rest days, travel, weather, live odds, or betting-market information. It is a transparent historical calibration layer, not an official FIFA model, official historical Elo table, or betting advice.
 
 Flag assets for the current MVP teams are local SVG files in `frontend/public/flags`. They are copied from the MIT-licensed [`flag-icons`](https://github.com/lipis/flag-icons) project and served statically by the frontend. The runtime app does not fetch remote flag images.
 
@@ -143,6 +173,7 @@ npm test
 ```
 
 The frontend test suite covers the current domain logic for probability, bracket propagation, overrides, and champion probabilities.
+It also covers the Simple Elo / Historically informed Elo model toggle and selected-model champion probability recalculation.
 
 ## GitHub Pages Deployment
 

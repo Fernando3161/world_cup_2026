@@ -28,6 +28,15 @@
       "notes": "Round-of-32 fixture source for the Stage 6.2 MVP data refresh."
     },
     {
+      "source_id": "martj42_international_results",
+      "display_name": "Mart Jurisoo international_results",
+      "source_type": "historical_results",
+      "url": "https://github.com/martj42/international_results",
+      "license_note": "External open dataset; review upstream license and attribution requirements before publication.",
+      "retrieval_method": "build-time snapshot stored in data/raw/international_results/",
+      "notes": "Historical international match results and shootout outcomes used to reconstruct pre-match Elo features for the historically informed model."
+    },
+    {
       "source_id": "flag_icons",
       "display_name": "flag-icons SVG flag set",
       "source_type": "flags",

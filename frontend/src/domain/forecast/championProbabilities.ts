@@ -1,5 +1,5 @@
 import { sortMatches } from "../bracket/resolveBracket";
-import { ratingDifferenceProbability } from "../probability/simpleElo";
+import { calculateRatingProbability } from "../probability/modelRegistry";
 import type {
   ChampionProbability,
   ForecastResult,
@@ -43,6 +43,8 @@ export function calculateChampionProbabilities(
       slotADistribution,
       slotBDistribution,
       teamsById,
+      tournamentData,
+      forecast.selected_model_id,
       sanitizedOverrides.get(match.match_id),
     );
     winnerDistributions.set(match.match_id, winnerDistribution);
@@ -128,6 +130,8 @@ function calculateWinnerDistribution(
   slotADistribution: ProbabilityDistribution,
   slotBDistribution: ProbabilityDistribution,
   teamsById: Map<string, Team>,
+  tournamentData: TournamentData,
+  selectedModelId: string,
   override: UserOverride | undefined,
 ): ProbabilityDistribution {
   const winnerDistribution: ProbabilityDistribution = new Map();
@@ -149,7 +153,12 @@ function calculateWinnerDistribution(
         continue;
       }
 
-      const pairProbability = ratingDifferenceProbability(teamA.rating, teamB.rating);
+      const pairProbability = calculateRatingProbability(
+        teamA.rating,
+        teamB.rating,
+        tournamentData,
+        selectedModelId,
+      );
       const forcedWinner = getForcedWinnerForPair(override, teamAId, teamBId);
 
       if (forcedWinner === teamAId) {
@@ -182,4 +191,3 @@ function getForcedWinnerForPair(
 function addProbability(distribution: ProbabilityDistribution, teamId: string, probability: number): void {
   distribution.set(teamId, (distribution.get(teamId) ?? 0) + probability);
 }
-

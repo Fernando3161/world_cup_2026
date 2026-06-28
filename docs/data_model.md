@@ -16,7 +16,7 @@ The data model must support:
 - Historical match result snapshots
 - Locally reconstructed historical Elo data
 - Simple Elo probability model
-- Future historically informed Elo probability model
+- Historically informed Elo probability model
 - Browser-side probability calculation
 - Baseline forecast
 - Current scenario forecast with user overrides
@@ -451,7 +451,7 @@ Recommended model IDs:
 | Model ID | Meaning | MVP? |
 |---|---|---:|
 | `simple_elo` | Direct Elo/rating-difference probability model | yes |
-| `historical_elo` | Rating-difference model calibrated on historical results | future |
+| `historically_informed_elo` | Rating-difference model calibrated on historical results and reconstructed pre-match Elo features | yes, Stage 7 |
 
 Recommended top-level model structure:
 
@@ -467,17 +467,18 @@ Recommended top-level model structure:
       "is_available": true
     },
     {
-      "model_id": "historical_elo",
+      "model_id": "historically_informed_elo",
       "display_name": "Historically informed Elo",
       "model_version": "0.1.0",
       "probability_method": "historical_rating_difference_calibration",
-      "is_available": false
+      "is_available": true
     }
   ]
 }
 ```
 
 The frontend should only show a model as selectable when `is_available = true`.
+Generated frontend data may include compact calibration parameters under `models.calibrated_models`; raw historical result rows must stay outside the frontend public bundle.
 
 ---
 
@@ -845,7 +846,7 @@ Conceptually:
 
 ```json
 {
-  "selected_model_id": "historical_elo",
+  "selected_model_id": "historically_informed_elo",
   "overrides": [
     { "match_id": "R32-01", "winner_team_id": "arg" },
     { "match_id": "R32-02", "winner_team_id": "fra" }
@@ -1187,4 +1188,4 @@ The data model is built around stable team IDs, stable match IDs, stable model I
 
 The MVP requires only rating data, team data, bracket data, and generated JSON.
 
-Future features such as historical calibration, model toggling, official result locking, forecast history, and shareable scenario URLs are supported by the same ID-based structure without requiring an architectural rewrite.
+Stage 7 historical calibration and model toggling use the same ID-based structure. Future features such as official result locking, forecast history, and shareable scenario URLs are supported without requiring an architectural rewrite.

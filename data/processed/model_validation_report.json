@@ -1,0 +1,46 @@
+{
+  "validated_at": "2026-06-28T12:46:59Z",
+  "model_id": "historically_informed_elo",
+  "model_version": "0.1.0",
+  "training_match_count": 49477,
+  "probability_at_zero": 0.5,
+  "is_monotonic_on_samples": true,
+  "sample_predictions": [
+    {
+      "rating_diff": -400,
+      "simple_elo_probability": 0.090909,
+      "historically_informed_probability": 0.076403
+    },
+    {
+      "rating_diff": -200,
+      "simple_elo_probability": 0.240253,
+      "historically_informed_probability": 0.223371
+    },
+    {
+      "rating_diff": -100,
+      "simple_elo_probability": 0.359935,
+      "historically_informed_probability": 0.349085
+    },
+    {
+      "rating_diff": 0,
+      "simple_elo_probability": 0.5,
+      "historically_informed_probability": 0.5
+    },
+    {
+      "rating_diff": 100,
+      "simple_elo_probability": 0.640065,
+      "historically_informed_probability": 0.650915
+    },
+    {
+      "rating_diff": 200,
+      "simple_elo_probability": 0.759747,
+      "historically_informed_probability": 0.776629
+    },
+    {
+      "rating_diff": 400,
+      "simple_elo_probability": 0.909091,
+      "historically_informed_probability": 0.923597
+    }
+  ],
+  "errors": []
+}

@@ -1,4 +1,4 @@
-import { ratingDifferenceProbability } from "../probability/simpleElo";
+import { calculateRatingProbability, resolveSelectedModelId } from "../probability/modelRegistry";
 import type {
   ForecastResult,
   Match,
@@ -36,6 +36,7 @@ export function resolveBracket(
   overrides: UserOverride[] = [],
   selectedModelId = tournamentData.models.default_model_id,
 ): ForecastResult {
+  const resolvedModelId = resolveSelectedModelId(tournamentData, selectedModelId);
   const teamsById = toTeamMap(tournamentData.teams);
   const requestedOverrides = new Map(overrides.map((override) => [override.match_id, override]));
   const matchesById = new Map<string, RuntimeMatch>();
@@ -46,7 +47,7 @@ export function resolveBracket(
     const teamAId = resolveSlotTeamId(match.slot_a, matchesById);
     const teamBId = resolveSlotTeamId(match.slot_b, matchesById);
     const requestedOverride = requestedOverrides.get(match.match_id);
-    const probabilities = calculateMatchProbabilities(teamAId, teamBId, teamsById);
+    const probabilities = calculateMatchProbabilities(teamAId, teamBId, teamsById, tournamentData, resolvedModelId);
     const winner = selectWinner(teamAId, teamBId, probabilities, requestedOverride);
 
     if (winner.source === "user_override" && requestedOverride) {
@@ -59,7 +60,7 @@ export function resolveBracket(
       round_id: match.round_id,
       team_a_id: teamAId,
       team_b_id: teamBId,
-      selected_model_id: selectedModelId,
+      selected_model_id: resolvedModelId,
       probability_a: probabilities?.probabilityA ?? null,
       probability_b: probabilities?.probabilityB ?? null,
       winner_team_id: winner.teamId,
@@ -72,7 +73,7 @@ export function resolveBracket(
   const ignoredOverrides = overrides.filter((override) => !appliedOverrideIds.has(override.match_id));
 
   return {
-    selected_model_id: selectedModelId,
+    selected_model_id: resolvedModelId,
     matches: Array.from(matchesById.values()),
     matchesById,
     appliedOverrides,
@@ -120,6 +121,8 @@ function calculateMatchProbabilities(
   teamAId: string | null,
   teamBId: string | null,
   teamsById: Map<string, Team>,
+  tournamentData: TournamentData,
+  selectedModelId: string,
 ) {
   if (!teamAId || !teamBId) {
     return null;
@@ -131,7 +134,7 @@ function calculateMatchProbabilities(
     return null;
   }
 
-  return ratingDifferenceProbability(teamA.rating, teamB.rating);
+  return calculateRatingProbability(teamA.rating, teamB.rating, tournamentData, selectedModelId);
 }
 
 function selectWinner(
@@ -153,4 +156,3 @@ function selectWinner(
     source: "model",
   };
 }
-

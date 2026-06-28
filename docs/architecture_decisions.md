@@ -786,6 +786,8 @@ This model starts from Elo/rating difference but applies calibration learned fro
 
 The historically informed model should be trained offline in Python and exported as static model parameters for the frontend.
 
+Stage 7 implements this as `historically_informed_elo`. The model uses Mart Jurisoo's `international_results` snapshots stored under `data/raw/international_results/`, reconstructs pre-match Elo features locally with a transparent simple Elo update, calibrates a compact logistic curve offline, and exports the result to `data/processed/calibrated_model.json`. The frontend receives only compact generated calibration parameters in `tournament.json`; it does not fetch historical data at runtime.
+
 ### 13.3 Model Toggle
 
 Once both models exist, the frontend must provide a toggle or selector between:
@@ -948,7 +950,7 @@ Version 1 includes:
 
 ### Version 2 — Historically Informed Forecast
 
-Version 2 may include:
+Version 2 includes:
 
 - Historical match result ingestion
 - Local historical Elo reconstruction

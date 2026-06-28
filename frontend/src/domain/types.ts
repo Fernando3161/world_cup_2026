@@ -76,16 +76,59 @@ export interface TournamentData {
   matches: Match[];
   models: {
     default_model_id: string;
-    available_models: Array<{
-      model_id: string;
-      display_name: string;
-      model_version: string;
-      probability_method: string;
-      is_available: boolean;
-    }>;
+    available_models: ProbabilityModelMetadata[];
+    calibrated_models?: Record<string, CalibratedProbabilityModel>;
     rating_source: string;
     rating_snapshot_date: string;
     rating_snapshot_kind: string;
+  };
+}
+
+export interface ProbabilityModelMetadata {
+  model_id: string;
+  display_name: string;
+  model_version: string;
+  probability_method: string;
+  is_available: boolean;
+}
+
+export interface CalibratedProbabilityModel {
+  calibration: {
+    type: "logistic";
+    alpha: number;
+    beta: number;
+    input: string;
+    formula: string;
+  };
+  metadata: {
+    training_data_source: string;
+    training_source_id: string;
+    training_source_url: string;
+    training_source_commit_sha?: string | null;
+    training_match_count: number;
+    training_date_min: string;
+    training_date_max: string;
+    rating_feature_type: string;
+    rating_reconstruction_params: {
+      initial_rating: number;
+      k_factor: number;
+      expected_score_formula: string;
+      elo_formula_version: string;
+      home_field_adjustment: number;
+      importance_weighting: string;
+    };
+    calibration_method: string;
+    generated_at: string;
+    notes: string;
+  };
+  diagnostics?: {
+    log_loss?: number;
+    mean_target?: number;
+    sample_predictions?: Array<{
+      rating_diff: number;
+      simple_elo_probability: number;
+      historically_informed_probability: number;
+    }>;
   };
 }
 

@@ -5,7 +5,7 @@
     "display_name": "FIFA World Cup 2026",
     "stage": "knockout",
     "starts_at_round": "R32",
-    "generated_at": "2026-06-28T12:00:44Z",
+    "generated_at": "2026-06-28T12:51:14Z",
     "data_version": "wikipedia-r32-footballratings-2026-06-28",
     "data_note": "Round-of-32 fixtures are parsed from a local Wikipedia knockout-stage snapshot; ratings are parsed from a local FootballRatings.org snapshot dated 2026-06-28."
   },
@@ -38,6 +38,15 @@
       "notes": "Round-of-32 fixture source for the Stage 6.2 MVP data refresh."
     },
     {
+      "source_id": "martj42_international_results",
+      "display_name": "Mart Jurisoo international_results",
+      "source_type": "historical_results",
+      "url": "https://github.com/martj42/international_results",
+      "license_note": "External open dataset; review upstream license and attribution requirements before publication.",
+      "retrieval_method": "build-time snapshot stored in data/raw/international_results/",
+      "notes": "Historical international match results and shootout outcomes used to reconstruct pre-match Elo features for the historically informed model."
+    },
+    {
       "source_id": "flag_icons",
       "display_name": "flag-icons SVG flag set",
       "source_type": "flags",
@@ -56,8 +65,88 @@
         "model_version": "1.0.0",
         "probability_method": "rating_difference_logistic",
         "is_available": true
+      },
+      {
+        "model_id": "historically_informed_elo",
+        "display_name": "Historically informed Elo",
+        "model_version": "0.1.0",
+        "probability_method": "historical_reconstructed_elo_logistic_recalibration",
+        "is_available": true
       }
     ],
+    "calibrated_models": {
+      "historically_informed_elo": {
+        "calibration": {
+          "type": "logistic",
+          "alpha": 0.0,
+          "beta": 0.006230646045636378,
+          "input": "rating_diff_a_minus_b",
+          "formula": "P(team A advances) = 1 / (1 + exp(-(alpha + beta * rating_diff)))"
+        },
+        "metadata": {
+          "training_data_source": "Mart Jurisoo international_results",
+          "training_source_id": "martj42_international_results",
+          "training_source_url": "https://github.com/martj42/international_results",
+          "training_source_commit_sha": "d5fe0956c6fc1803bf1bf48303b8e75b4db65ef8",
+          "training_match_count": 49477,
+          "training_date_min": "1872-11-30",
+          "training_date_max": "2026-06-27",
+          "rating_feature_type": "Reconstructed historical Elo features",
+          "rating_reconstruction_params": {
+            "initial_rating": 1500.0,
+            "k_factor": 20.0,
+            "expected_score_formula": "1 / (1 + 10 ^ (-rating_diff / 400))",
+            "elo_formula_version": "reconstructed-simple-elo-v1",
+            "home_field_adjustment": 0,
+            "importance_weighting": "none"
+          },
+          "calibration_method": "One-parameter logistic recalibration fit to historical expected-score targets. Draws without shootouts are target 0.5; shootout winners are target 1.",
+          "generated_at": "2026-06-28T12:46:59Z",
+          "notes": "Historically calibrated from international match results and locally reconstructed pre-match Elo features. It is used as a knockout advancement proxy, not as an official Elo table or betting model."
+        },
+        "diagnostics": {
+          "log_loss": 0.603265,
+          "mean_target": 0.604271,
+          "sample_predictions": [
+            {
+              "rating_diff": -400,
+              "simple_elo_probability": 0.090909,
+              "historically_informed_probability": 0.076403
+            },
+            {
+              "rating_diff": -200,
+              "simple_elo_probability": 0.240253,
+              "historically_informed_probability": 0.223371
+            },
+            {
+              "rating_diff": -100,
+              "simple_elo_probability": 0.359935,
+              "historically_informed_probability": 0.349085
+            },
+            {
+              "rating_diff": 0,
+              "simple_elo_probability": 0.5,
+              "historically_informed_probability": 0.5
+            },
+            {
+              "rating_diff": 100,
+              "simple_elo_probability": 0.640065,
+              "historically_informed_probability": 0.650915
+            },
+            {
+              "rating_diff": 200,
+              "simple_elo_probability": 0.759747,
+              "historically_informed_probability": 0.776629
+            },
+            {
+              "rating_diff": 400,
+              "simple_elo_probability": 0.909091,
+              "historically_informed_probability": 0.923597
+            }
+          ]
+        }
+      }
+    },
     "rating_source": "Football Elo Ratings mirror",
     "rating_snapshot_date": "2026-06-28",
     "rating_snapshot_kind": "pre_knockout"

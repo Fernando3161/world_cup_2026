@@ -16,6 +16,10 @@ import {
   calculateChampionProbabilities,
   deriveTopFourChampions,
 } from "../domain/forecast";
+import {
+  getSelectableProbabilityModels,
+  resolveSelectedModelId,
+} from "../domain/probability/modelRegistry";
 import type { TournamentData, UserOverride } from "../domain/types";
 
 const tournamentData = tournamentDataJson as TournamentData;
@@ -26,14 +30,17 @@ type ActiveModal = "about" | "model" | "sources" | null;
 export function App() {
   const [overrides, setOverrides] = useState<UserOverride[]>([]);
   const [activeModal, setActiveModal] = useState<ActiveModal>(null);
+  const [selectedModelId, setSelectedModelId] = useState(() =>
+    resolveSelectedModelId(tournamentData),
+  );
 
   const baselineForecast = useMemo(
-    () => resolveBaselineForecast(tournamentData),
-    [],
+    () => resolveBaselineForecast(tournamentData, selectedModelId),
+    [selectedModelId],
   );
   const scenarioForecast = useMemo(
-    () => resolveCurrentScenarioForecast(tournamentData, overrides),
-    [overrides],
+    () => resolveCurrentScenarioForecast(tournamentData, overrides, selectedModelId),
+    [overrides, selectedModelId],
   );
   const baselineChampionProbabilities = useMemo(
     () => calculateChampionProbabilities(tournamentData, baselineForecast),
@@ -53,6 +60,10 @@ export function App() {
   );
   const teamsById = useMemo(
     () => new Map(tournamentData.teams.map((team) => [team.team_id, team])),
+    [],
+  );
+  const selectableModels = useMemo(
+    () => getSelectableProbabilityModels(tournamentData),
     [],
   );
 
@@ -91,11 +102,14 @@ export function App() {
           <ForecastControls
             tournamentData={tournamentData}
             teamsById={teamsById}
+            selectableModels={selectableModels}
+            selectedModelId={scenarioForecast.selected_model_id}
             baselineChampion={baselineChampion}
             scenarioChampion={scenarioChampion}
             appliedOverrideCount={scenarioForecast.appliedOverrides.length}
             ignoredOverrideCount={scenarioForecast.ignoredOverrides.length}
             hasOverrides={overrides.length > 0}
+            onModelChange={setSelectedModelId}
             onResetOverrides={handleResetOverrides}
           />
           <ChampionSummary
@@ -143,10 +157,11 @@ export function App() {
             account system, or live data feed.
           </p>
           <p>
-            The current deployment uses a local Round-of-32 fixture snapshot
-            and a local pre-knockout rating snapshot. Future updates should
-            follow the same reviewed local validation and static build
-            pipeline.
+              The current deployment uses a local Round-of-32 fixture snapshot
+            and a local pre-knockout rating snapshot. It also includes an
+            offline historical calibration artifact generated from local
+            historical results snapshots. Future updates should follow the same
+            reviewed local validation and static build pipeline.
           </p>
         </div>
       </Modal>
@@ -175,6 +190,16 @@ P(B advances) = 1 - P(A advances)`}
             </p>
           </section>
           <section>
+            <h3>Historically informed Elo</h3>
+            <p>
+              The second model keeps the same rating inputs for current teams
+              but uses a calibrated logistic curve trained on historical
+              international match results. The training features use
+              reconstructed pre-match Elo differences, so each historical match
+              is evaluated with ratings from before that match was played.
+            </p>
+          </section>
+          <section>
             <h3>Exact bracket propagation</h3>
             <p>
               The bracket is resolved from the static tournament structure. In
@@ -193,12 +218,14 @@ P(B advances) = 1 - P(A advances)`}
             </p>
           </section>
           <section>
-            <h3>Historically informed Elo</h3>
+            <h3>Limitations</h3>
             <p>
-              Not implemented yet. The reserved future model will calibrate the
-              rating-difference curve against historical international match
-              outcomes prepared offline, then export static parameters for the
-              browser.
+              The historical model calibrates rating differences against past
+              international results and uses draws as expected-score targets
+              unless a shootout winner is recorded. It does not include squads,
+              injuries, tactics, rest days, travel, weather, live odds, or
+              venue-specific adjustments. It is a model estimate, not certainty
+              or betting advice.
             </p>
           </section>
           <section>
@@ -230,7 +257,10 @@ P(B advances) = 1 - P(A advances)`}
               The current bracket is parsed from a locally saved Wikipedia
               knockout-stage page. Ratings are parsed from a locally saved
               FootballRatings.org page dated 2026-06-28, then stored as a CSV
-              snapshot before frontend generation.
+              snapshot before frontend generation. Historical training data is
+              stored as local raw CSV snapshots from Mart Jurisoo's
+              international_results dataset and reduced to compact calibration
+              parameters for the frontend.
             </p>
           </section>
           <section>
@@ -263,7 +293,7 @@ P(B advances) = 1 - P(A advances)`}
               </div>
             ))}
             <div>
-              <dt>Historical results source for future calibration</dt>
+              <dt>Historical results source</dt>
               <dd>
                 <a
                   href="https://github.com/martj42/international_results"
@@ -273,8 +303,8 @@ P(B advances) = 1 - P(A advances)`}
                   Mart Jurisoo international_results
                 </a>
                 <span>
-                  Future offline calibration input; not part of the current
-                  MVP forecast calculation.
+                  Offline calibration input for the historically informed Elo
+                  model. Raw rows stay outside the frontend bundle.
                 </span>
               </dd>
             </div>

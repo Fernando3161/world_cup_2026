@@ -1,45 +1,63 @@
-import type { ChampionProbability, Team, TournamentData } from "../../domain/types";
+import type {
+  ChampionProbability,
+  ProbabilityModelMetadata,
+  Team,
+  TournamentData,
+} from "../../domain/types";
 
 interface ForecastControlsProps {
   tournamentData: TournamentData;
   teamsById: Map<string, Team>;
+  selectableModels: ProbabilityModelMetadata[];
+  selectedModelId: string;
   baselineChampion: ChampionProbability;
   scenarioChampion: ChampionProbability;
   appliedOverrideCount: number;
   ignoredOverrideCount: number;
   hasOverrides: boolean;
+  onModelChange: (modelId: string) => void;
   onResetOverrides: () => void;
 }
 
 export function ForecastControls({
   tournamentData,
   teamsById,
+  selectableModels,
+  selectedModelId,
   baselineChampion,
   scenarioChampion,
   appliedOverrideCount,
   ignoredOverrideCount,
   hasOverrides,
+  onModelChange,
   onResetOverrides,
 }: ForecastControlsProps) {
-  const simpleModel = tournamentData.models.available_models.find(
-    (model) => model.model_id === "simple_elo",
-  );
+  const selectedModel = selectableModels.find((model) => model.model_id === selectedModelId);
 
   return (
     <>
       <section className="control-card model-status" aria-labelledby="model-status-title">
         <p className="eyebrow">Model</p>
         <h2 id="model-status-title">Forecast engine</h2>
-        <div className="model-toggle" role="list" aria-label="Model availability">
-          <span className="model-option model-option-active" role="listitem">
-            <strong>{simpleModel?.display_name ?? "Simple Elo"}</strong>
-            <span>Active</span>
-          </span>
-          <span className="model-option model-option-disabled" role="listitem">
-            <strong>Historically informed Elo</strong>
-            <span>Coming soon</span>
-          </span>
+        <div className="model-toggle" role="radiogroup" aria-label="Forecast probability model">
+          {selectableModels.map((model) => (
+            <button
+              className={`model-option ${model.model_id === selectedModelId ? "model-option-active" : ""}`}
+              type="button"
+              role="radio"
+              aria-checked={model.model_id === selectedModelId}
+              key={model.model_id}
+              onClick={() => onModelChange(model.model_id)}
+            >
+              <strong>{model.display_name}</strong>
+              <span>{model.model_id === selectedModelId ? "Active" : "Select"}</span>
+            </button>
+          ))}
         </div>
+        <p className="model-caption">
+          Active model: {selectedModel?.display_name ?? selectedModelId}. Ratings snapshot:{" "}
+          {tournamentData.models.rating_snapshot_date}.
+        </p>
       </section>
 
       <section className="control-card scenario-status" aria-labelledby="scenario-status-title">

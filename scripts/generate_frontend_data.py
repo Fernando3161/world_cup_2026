@@ -7,6 +7,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+from scripts.historical_model import CALIBRATED_MODEL_FILE, MODEL_ID
 from scripts.validate_data import DataValidationError, ProjectData, validate_project_data
 
 
@@ -17,6 +18,42 @@ DATA_OUTPUT_PATH = Path("data/frontend/tournament.json")
 def build_frontend_data(project_data: ProjectData) -> dict[str, Any]:
     ratings_by_team_id = {rating["team_id"]: rating for rating in project_data.ratings}
     first_rating = project_data.ratings[0]
+    calibrated_model = _load_calibrated_model(project_data.repo_root)
+    available_models = [
+        {
+            "model_id": "simple_elo",
+            "display_name": "Simple Elo",
+            "model_version": "1.0.0",
+            "probability_method": "rating_difference_logistic",
+            "is_available": True,
+        }
+    ]
+    calibrated_models: dict[str, Any] = {}
+    if calibrated_model:
+        available_models.append(
+            {
+                "model_id": calibrated_model["model_id"],
+                "display_name": calibrated_model["display_name"],
+                "model_version": calibrated_model["model_version"],
+                "probability_method": calibrated_model["probability_method"],
+                "is_available": True,
+            }
+        )
+        calibrated_models[calibrated_model["model_id"]] = {
+            "calibration": calibrated_model["calibration"],
+            "metadata": calibrated_model["metadata"],
+            "diagnostics": calibrated_model.get("diagnostics", {}),
+        }
+    else:
+        available_models.append(
+            {
+                "model_id": MODEL_ID,
+                "display_name": "Historically informed Elo",
+                "model_version": "0.1.0",
+                "probability_method": "historical_reconstructed_elo_logistic_recalibration",
+                "is_available": False,
+            }
+        )
 
     return {
         "schema_version": "1",
@@ -35,15 +72,8 @@ def build_frontend_data(project_data: ProjectData) -> dict[str, Any]:
         "sources": project_data.sources,
         "models": {
             "default_model_id": "simple_elo",
-            "available_models": [
-                {
-                    "model_id": "simple_elo",
-                    "display_name": "Simple Elo",
-                    "model_version": "1.0.0",
-                    "probability_method": "rating_difference_logistic",
-                    "is_available": True,
-                }
-            ],
+            "available_models": available_models,
+            "calibrated_models": calibrated_models,
             "rating_source": first_rating["rating_source"],
             "rating_snapshot_date": first_rating["rating_date"],
             "rating_snapshot_kind": first_rating["rating_snapshot_kind"],
@@ -88,6 +118,20 @@ def _build_frontend_team(team: dict[str, str], rating: dict[str, str]) -> dict[s
         frontend_team["source_url"] = source_url
 
     return frontend_team
+
+
+def _load_calibrated_model(repo_root: Path) -> dict[str, Any] | None:
+    path = repo_root / CALIBRATED_MODEL_FILE
+    if not path.exists():
+        return None
+
+    with path.open(encoding="utf-8") as file:
+        model = json.load(file)
+    if not isinstance(model, dict) or model.get("model_id") != MODEL_ID:
+        return None
+    if not model.get("is_available") or not isinstance(model.get("calibration"), dict):
+        return None
+    return model
 
 
 def main() -> int:
